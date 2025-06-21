@@ -66,12 +66,6 @@ Built with vanilla JavaScript and CSS, MachVive delivers optimal performance whi
     
     
     <div class="mobile-nav-drawer">
-        <button class="mobile-close-btn" aria-label="Close menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
         <div class="mobile-nav-content">
             <a href="/about" class="mobile-nav-link">About</a>
             <a href="/docs/" class="mobile-nav-link">Documentation</a>
@@ -238,33 +232,6 @@ Built with vanilla JavaScript and CSS, MachVive delivers optimal performance whi
     }
     
      
-    .mobile-close-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease;
-    }
-    
-    .mobile-close-btn:hover {
-        transform: rotate(90deg);
-    }
-    
-    .mobile-close-btn svg {
-        width: 24px;
-        height: 24px;
-        stroke: #fff;
-    }
-    
-     
     @media (max-width: 768px) {
         .desktop-nav {
             display: none;
@@ -344,7 +311,6 @@ Built with vanilla JavaScript and CSS, MachVive delivers optimal performance whi
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
     const mobileNavDrawer = document.querySelector('.mobile-nav-drawer');
     const body = document.body;
     
@@ -361,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
     overlay.addEventListener('click', toggleMobileMenu);
     
     
