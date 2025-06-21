@@ -182,10 +182,10 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
      
     .mobile-nav-drawer {
         position: fixed;
-        top: 70px;
+        top: 0;
         right: -280px;
         width: 280px;
-        height: calc(100vh - 70px);
+        height: 100vh;
         background-color: #1a1a1a;
         border-left: 1px solid #333;
         transition: right 0.3s ease;
@@ -194,6 +194,8 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
          
         overflow-y: auto;
         overflow-x: hidden;
+         
+        padding-top: 70px;
     }
     
     .mobile-nav-drawer.open {
@@ -289,10 +291,10 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
      
     .mobile-nav-overlay {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: 0;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: 100vh;
         background-color: rgba(0, 0, 0, 0.5);
         opacity: 0;
         visibility: hidden;
