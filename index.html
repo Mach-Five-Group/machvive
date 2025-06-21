@@ -1017,6 +1017,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gap: 30px;
         margin-top: 40px;
         position: relative;
+        z-index: 5;
     }
     
      
@@ -1178,26 +1179,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
      
-    .feature-card::after {
+    .machvive-features::before {
         content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: radial-gradient(ellipse 100vw 60vh at 50% 50%, 
-            rgba(255, 255, 255, 0.15) 0%, 
-            rgba(255, 255, 255, 0.08) 30%,
-            rgba(255, 255, 255, 0.04) 50%,
-            transparent 70%
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 120%;
+        background: radial-gradient(circle at center, 
+            rgba(255, 255, 255, 0.4) 0%, 
+            rgba(255, 255, 255, 0.25) 20%,
+            rgba(255, 255, 255, 0.15) 35%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0.03) 65%,
+            transparent 80%
         );
         pointer-events: none;
-        z-index: -1;
-    }
-    
-     
-    .feature-card:not(:first-child)::after {
-        display: none;
+        z-index: 1;
     }
     
     .feature-card > * {
