@@ -1405,26 +1405,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
          
-        @media (max-width: 768px) {
-            .docs-content {
-                margin-left: 0 !important;
-                width: 100% !important;
+        @media screen and (max-width: 768px) {
+            .docs-theme .docs-layout .docs-content {
+                margin-left: 0;
+                width: 100%;
             }
 
-            .docs-main {
-                width: 100% !important;
+            .docs-theme .docs-layout .docs-main {
+                width: 100%;
             }
 
-            .docs-article {
-                width: 100% !important;
-                max-width: 100% !important;
+            .docs-theme .docs-layout .docs-article {
+                width: 100%;
+                max-width: 100%;
             }
 
-            .docs-article-content {
-                padding: 20px !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
+            .docs-theme .docs-layout .docs-article-content {
+                padding: 20px;
+                max-width: 100%;
+                width: 100%;
+                box-sizing: border-box;
             }
         }
 
