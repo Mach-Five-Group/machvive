@@ -1099,14 +1099,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
      
-    .feature-card:hover {
-        animation: cardStagger 0.8s ease-out forwards, pulse 2s ease-in-out infinite;
-        border-color: rgba(221, 65, 36, 0.3);
-        box-shadow: 
-            inset 0 1px 0 rgba(255, 255, 255, 0.15),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-            0 4px 8px rgba(0, 0, 0, 0.3),
-            0 0 20px rgba(221, 65, 36, 0.1);
+    @media (hover: hover) {
+        .feature-card:hover {
+            animation: cardStagger 0.8s ease-out forwards, pulse 2s ease-in-out infinite;
+            border-color: rgba(221, 65, 36, 0.3);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(221, 65, 36, 0.1);
+        }
     }
     
     @keyframes pulse {
@@ -1239,13 +1241,15 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: all 0.3s ease;
     }
     
-    .feature-card:hover h3 {
-        background: linear-gradient(135deg, #DD4124 0%, #ff6b4a 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-        transform: translateX(5px);
+    @media (hover: hover) {
+        .feature-card:hover h3 {
+            background: linear-gradient(135deg, #DD4124 0%, #ff6b4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transform: translateX(5px);
+        }
     }
     
     .feature-card p {
