@@ -100,6 +100,7 @@ Key Features High Performance - Built with vanilla JavaScript for optimal speed 
         align-items: center;
         justify-content: space-between;
         height: 70px;
+        position: relative;
     }
     
      
@@ -255,6 +256,22 @@ Key Features High Performance - Built with vanilla JavaScript for optimal speed 
          
         .main-nav {
             overflow: hidden;
+        }
+        
+         
+        .nav-container {
+            padding: 0 15px;
+        }
+        
+        .nav-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .mobile-menu-btn {
+            margin-left: auto;
         }
         
          
