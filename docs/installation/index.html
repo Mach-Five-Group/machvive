@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Installation | MachVive Documentation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
+    
+    <link rel="preconnect"   href="https://arcanus55.github.io/" crossorigin>
+    <link rel="preconnect"   href="https://neodigm.github.io/" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/" >
+    
+    <link rel="stylesheet" href="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.css"></link>
+    <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.js"></script>
+    <link rel="stylesheet" href="https://arcanus55.github.io/neodigm55/dist/neodigm55_v1_0_launchComplete.css"></link>
+    <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55_v1_0_launchComplete.js"></script>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta property="og:title"       content="Installation | MachVive Documentation">
+    <meta property="og:site_name"   content="MachVive">
+    <meta property="og:url"         content="http://example.org/docs/installation/">
+    <meta property="og:description" content="Installation Getting started with MachVive is quick and easy. Choose the installation method that works best for your project.
+Package Manager Installation npm npm install @machvive/core yarn yarn add @machvive/core pnpm pnpm add @machvive/core CDN Installation For quick prototyping or simple projects, you can include MachVive directly from a CDN:
+&lt;script src=&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.min.js&#34;&gt;&lt;/script&gt; Module Import ES6 Modules import { MachVive, Component } from &#39;@machvive/core&#39;; CommonJS const { MachVive, Component } = require(&#39;@machvive/core&#39;); UMD (Browser) &lt;script src=&#34;https://unpkg.">
+    <meta property="og:type"        content="website">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="MachVive Docs" />
+</head>
+
+<body class="docs-theme">
+    
+    <div class="machvive-top-stripe">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 8px; vertical-align: middle;">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="white"/>
+        </svg>
+        MachVive is open source and free forever - contribute on GitHub
+    </div>
+
+    <header class="l-main__header">
+        <nav class="main-nav">
+    <div class="nav-container">
+        
+        <div class="nav-brand">
+            <a href="/" class="brand-link">
+                <img src="/img/MachVive Logo.png" alt="MachVive" class="nav-logo">
+            </a>
+        </div>
+        
+        
+        <div class="nav-links desktop-nav">
+            <a href="/about" class="nav-link">About</a>
+            <a href="/docs/" class="nav-link">Documentation</a>
+            <a href="https://github.com/Mach-Five-Group/" target="_blank" class="nav-link github-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+        
+        
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+    
+    
+    <div class="mobile-nav-drawer">
+        <div class="mobile-nav-content">
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/docs/" class="mobile-nav-link">Documentation</a>
+            <a href="https://github.com/Mach-Five-Group/" target="_blank" class="mobile-nav-link github-mobile">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .main-nav {
+        position: relative;
+    }
+    
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+    
+     
+    .nav-brand {
+        flex-shrink: 0;
+    }
+    
+    .brand-link {
+        display: block;
+        text-decoration: none;
+    }
+    
+    .nav-logo {
+        height: 40px;
+        width: auto;
+    }
+    
+     
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .nav-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .nav-link:hover {
+        color: #DD4124;
+    }
+    
+    .github-link svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+     
+    .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+    
+     
+    .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+     
+    .mobile-nav-drawer {
+        position: fixed;
+        top: 70px;
+        right: -280px;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background-color: #1a1a1a;
+        border-left: 1px solid #333;
+        transition: right 0.3s ease;
+        z-index: 999;
+        transform: translateZ(0);
+    }
+    
+    .mobile-nav-drawer.open {
+        right: 0;
+    }
+    
+    .mobile-nav-content {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .mobile-nav-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 15px 0;
+        border-bottom: 1px solid #333;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .mobile-nav-link:hover {
+        color: #DD4124;
+    }
+    
+    .github-mobile svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+     
+    @media (max-width: 768px) {
+        .desktop-nav {
+            display: none;
+        }
+        
+        .mobile-menu-btn {
+            display: flex;
+        }
+        
+         
+        body {
+            overflow-x: hidden;
+        }
+        
+        .l-main__header {
+            overflow: visible;
+        }
+    }
+    
+     
+    @media (min-width: 769px) {
+        .mobile-nav-drawer {
+            display: none !important;
+        }
+        
+        .mobile-nav-overlay {
+            display: none !important;
+        }
+    }
+    
+     
+    .mobile-nav-overlay {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 998;
+    }
+    
+    .mobile-nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNavDrawer = document.querySelector('.mobile-nav-drawer');
+    const body = document.body;
+    
+    
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-nav-overlay';
+    body.appendChild(overlay);
+    
+    function toggleMobileMenu() {
+        mobileMenuBtn.classList.toggle('active');
+        mobileNavDrawer.classList.toggle('open');
+        overlay.classList.toggle('active');
+        body.style.overflow = mobileNavDrawer.classList.contains('open') ? 'hidden' : '';
+    }
+    
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', toggleMobileMenu);
+    
+    
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileNavDrawer.classList.contains('open')) {
+                toggleMobileMenu();
+            }
+        });
+    });
+});
+</script>
+    </header>
+
+    <main class="docs-layout">
+        <aside class="docs-sidebar">
+    <div class="docs-sidebar-content">
+        
+        <div class="docs-sidebar-header">
+            <a href="/" class="docs-logo-link">
+                <img src="/img/MachVive Logo.png" alt="MachVive" class="docs-logo">
+            </a>
+            <h2 class="docs-title">Documentation</h2>
+        </div>
+
+        
+        <div class="docs-search">
+            <input type="search" placeholder="Search docs..." class="docs-search-input">
+        </div>
+
+        
+        <nav class="docs-nav">
+            <div class="docs-nav-section">
+                <h3 class="docs-nav-title">Getting Started</h3>
+                <ul class="docs-nav-list">
+                    <li><a href="/docs/" class="docs-nav-link ">Introduction</a></li>
+                    <li><a href="/docs/installation/" class="docs-nav-link active">Installation</a></li>
+                    <li><a href="/docs/quick-start/" class="docs-nav-link ">Quick Start</a></li>
+                </ul>
+            </div>
+
+            <div class="docs-nav-section">
+                <h3 class="docs-nav-title">Core Concepts</h3>
+                <ul class="docs-nav-list">
+                    <li><a href="/docs/concepts/components/" class="docs-nav-link ">Components</a></li>
+                    <li><a href="/docs/concepts/styling/" class="docs-nav-link ">Styling</a></li>
+                    <li><a href="/docs/concepts/reactivity/" class="docs-nav-link ">Reactivity</a></li>
+                </ul>
+            </div>
+
+            <div class="docs-nav-section">
+                <h3 class="docs-nav-title">API Reference</h3>
+                <ul class="docs-nav-list">
+                    <li><a href="/docs/api/core/" class="docs-nav-link ">Core API</a></li>
+                    <li><a href="/docs/api/components/" class="docs-nav-link ">Components</a></li>
+                    <li><a href="/docs/api/utilities/" class="docs-nav-link ">Utilities</a></li>
+                </ul>
+            </div>
+
+            <div class="docs-nav-section">
+                <h3 class="docs-nav-title">Examples</h3>
+                <ul class="docs-nav-list">
+                    <li><a href="/docs/examples/basic/" class="docs-nav-link ">Basic Usage</a></li>
+                    <li><a href="/docs/examples/advanced/" class="docs-nav-link ">Advanced Examples</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</aside>
+
+<style>
+    .docs-sidebar {
+        position: fixed;
+        left: 0;
+        top: 70px;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background-color: #1a1a1a;
+        border-right: 1px solid #333;
+        overflow-y: auto;
+        z-index: 100;
+    }
+    
+     
+    .docs-sidebar::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .docs-sidebar::-webkit-scrollbar-track {
+        background: #2a2a2a;
+    }
+    
+    .docs-sidebar::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 4px;
+    }
+    
+    .docs-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
+    }
+
+    .docs-sidebar-content {
+        padding: 20px;
+    }
+
+    .docs-sidebar-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .docs-logo-link {
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .docs-logo {
+        height: 50px;
+        width: auto;
+    }
+
+    .docs-title {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .docs-search {
+        margin-bottom: 30px;
+    }
+
+    .docs-search-input {
+        width: 100%;
+        padding: 10px 15px;
+        background-color: #2a2a2a;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .docs-search-input::placeholder {
+        color: #888;
+    }
+
+    .docs-search-input:focus {
+        outline: none;
+        border-color: #DD4124;
+        box-shadow: 0 0 0 2px rgba(221, 65, 36, 0.2);
+    }
+
+    .docs-nav-section {
+        margin-bottom: 30px;
+    }
+
+    .docs-nav-title {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .docs-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .docs-nav-list li {
+        margin-bottom: 8px;
+    }
+
+    .docs-nav-link {
+        display: block;
+        padding: 8px 15px;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .docs-nav-link:hover {
+        background-color: #2a2a2a;
+        color: #fff;
+    }
+
+    .docs-nav-link.active {
+        background-color: #DD4124;
+        color: #fff;
+    }
+
+     
+    @media (max-width: 768px) {
+        .docs-sidebar {
+            left: -280px;
+            transition: left 0.3s ease;
+        }
+
+        .docs-sidebar.open {
+            left: 0;
+        }
+    }
+</style>
+        
+        <div class="docs-content">
+            <div class="docs-header">
+    
+    <button class="docs-mobile-toggle" aria-label="Toggle sidebar">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    
+    <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <ol class="docs-breadcrumb-list">
+            <li class="docs-breadcrumb-item">
+                <a href="/" class="docs-breadcrumb-link">Home</a>
+            </li>
+            <li class="docs-breadcrumb-item">
+                <a href="/docs/" class="docs-breadcrumb-link">Documentation</a>
+            </li>
+            
+            
+            
+            
+                
+            
+                
+                    
+                    <li class="docs-breadcrumb-item">
+                        
+                            <span class="docs-breadcrumb-current">Installation</span>
+                        
+                    </li>
+                
+            
+            
+        </ol>
+    </nav>
+
+    
+    <div class="docs-page-header">
+        <h1 class="docs-page-title">Installation</h1>
+        
+        <p class="docs-page-description">Learn how to install and set up MachVive in your project with npm, yarn, or CDN.</p>
+        
+    </div>
+</div>
+
+<style>
+    .docs-header {
+        padding: 30px 40px;
+        border-bottom: 1px solid #333;
+        background-color: #1a1a1a;
+        position: relative;
+        overflow: hidden;
+    }
+    
+     
+    .docs-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1200px;
+        height: 100%;
+        max-width: calc(100vw - 40px);
+        background: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 50px 50px;
+        mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .docs-mobile-toggle {
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        flex-direction: column;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 101;
+    }
+
+    .docs-mobile-toggle .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+
+    .docs-mobile-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .docs-mobile-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .docs-mobile-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .docs-breadcrumb {
+        margin-bottom: 20px;
+    }
+
+    .docs-breadcrumb-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .docs-breadcrumb-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .docs-breadcrumb-item:not(:last-child)::after {
+        content: '›';
+        margin: 0 12px;
+        color: #666;
+        font-size: 16px;
+    }
+
+    .docs-breadcrumb-link {
+        color: #888;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .docs-breadcrumb-link:hover {
+        color: #DD4124;
+    }
+
+    .docs-breadcrumb-current {
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .docs-page-header {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .docs-breadcrumb {
+        position: relative;
+        z-index: 1;
+    }
+
+    .docs-page-title {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0 0 15px 0;
+        line-height: 1.2;
+    }
+
+    .docs-page-description {
+        color: #ccc;
+        font-size: 18px;
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+        max-width: 800px;
+    }
+
+
+     
+    @media (max-width: 768px) {
+        .docs-header {
+            padding: 80px 20px 30px;
+        }
+
+        .docs-mobile-toggle {
+            display: flex;
+        }
+
+        .docs-page-title {
+            font-size: 28px;
+        }
+
+        .docs-page-description {
+            font-size: 16px;
+        }
+    }
+</style>
+            
+            <div class="docs-main">
+                <article class="docs-article">
+                    <div class="docs-article-content">
+                        <h1 id="installation">Installation</h1>
+<p>Getting started with MachVive is quick and easy. Choose the installation method that works best for your project.</p>
+<h2 id="package-manager-installation">Package Manager Installation</h2>
+<h3 id="npm">npm</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install @machvive/core
+</span></span></code></pre></div><h3 id="yarn">yarn</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add @machvive/core
+</span></span></code></pre></div><h3 id="pnpm">pnpm</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pnpm add @machvive/core
+</span></span></code></pre></div><h2 id="cdn-installation">CDN Installation</h2>
+<p>For quick prototyping or simple projects, you can include MachVive directly from a CDN:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h2 id="module-import">Module Import</h2>
+<h3 id="es6-modules">ES6 Modules</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@machvive/core&#39;</span>;
+</span></span></code></pre></div><h3 id="commonjs">CommonJS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@machvive/core&#39;</span>);
+</span></span></code></pre></div><h3 id="umd-browser">UMD (Browser)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.umd.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">MachVive</span>;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h2 id="development-setup">Development Setup</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Node.js 16.0 or higher</li>
+<li>npm 7.0 or higher (or equivalent yarn/pnpm version)</li>
+</ul>
+<h3 id="create-a-new-project">Create a New Project</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create project directory</span>
+</span></span><span style="display:flex;"><span>mkdir my-machvive-app
+</span></span><span style="display:flex;"><span>cd my-machvive-app
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize package.json</span>
+</span></span><span style="display:flex;"><span>npm init -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install MachVive</span>
+</span></span><span style="display:flex;"><span>npm install @machvive/core
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install development dependencies</span>
+</span></span><span style="display:flex;"><span>npm install --save-dev @machvive/cli webpack webpack-cli
+</span></span></code></pre></div><h3 id="project-structure">Project Structure</h3>
+<pre tabindex="0"><code>my-machvive-app/
+├── src/
+│   ├── components/
+│   ├── styles/
+│   └── index.js
+├── public/
+│   └── index.html
+├── package.json
+└── webpack.config.js
+</code></pre><h2 id="typescript-support">TypeScript Support</h2>
+<p>MachVive includes full TypeScript support out of the box:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install @machvive/core
+</span></span><span style="display:flex;"><span>npm install --save-dev typescript @types/node
+</span></span></code></pre></div><p>Create a <code>tsconfig.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;ES2020&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;module&#34;</span>: <span style="color:#e6db74">&#34;ESNext&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;moduleResolution&#34;</span>: <span style="color:#e6db74">&#34;node&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;strict&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;jsx&#34;</span>: <span style="color:#e6db74">&#34;preserve&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;esModuleInterop&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipLibCheck&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;forceConsistentCasingInFileNames&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;include&#34;</span>: [<span style="color:#e6db74">&#34;src/**/*&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;exclude&#34;</span>: [<span style="color:#e6db74">&#34;node_modules&#34;</span>, <span style="color:#e6db74">&#34;dist&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="verification">Verification</h2>
+<p>Create a simple test to verify your installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// src/index.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MachVive</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@machvive/core&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MachVive</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;h1&gt;Hello, MachVive!&lt;/h1&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;MachVive is working!&#39;</span>, <span style="color:#a6e22e">app</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- public/index.html --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;MachVive Test&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../src/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h2 id="whats-next">What&rsquo;s Next?</h2>
+<p>Now that you have MachVive installed, you&rsquo;re ready to start building:</p>
+<ul>
+<li><a href="/docs/quick-start/">Quick Start Guide</a> - Build your first app</li>
+<li><a href="/docs/concepts/components/">Core Concepts</a> - Learn the fundamentals</li>
+<li><a href="/docs/api/core/">API Reference</a> - Explore the complete API</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>Module not found errors:</strong></p>
+<ul>
+<li>Ensure you&rsquo;ve installed MachVive: <code>npm list @machvive/core</code></li>
+<li>Check your import paths are correct</li>
+</ul>
+<p><strong>TypeScript errors:</strong></p>
+<ul>
+<li>Install type definitions: <code>npm install --save-dev @types/machvive</code></li>
+<li>Update your <code>tsconfig.json</code> configuration</li>
+</ul>
+<p><strong>Build failures:</strong></p>
+<ul>
+<li>Ensure Node.js version is 16.0 or higher: <code>node --version</code></li>
+<li>Clear your package cache: <code>npm cache clean --force</code></li>
+</ul>
+<p>Need more help? Check our <a href="https://github.com/Mach-Five-Group/">GitHub Issues</a> or join the community discussion.</p>
+
+                    </div>
+                    
+                    
+
+<aside class="docs-toc">
+    <div class="docs-toc-content">
+        <h4 class="docs-toc-title">On this page</h4>
+        <nav class="docs-toc-nav">
+            <ul class="docs-toc-list">
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#package-manager-installation" class="docs-toc-link">Package Manager Installation</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#npm" class="docs-toc-link">npm</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#yarn" class="docs-toc-link">yarn</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#pnpm" class="docs-toc-link">pnpm</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#cdn-installation" class="docs-toc-link">CDN Installation</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#module-import" class="docs-toc-link">Module Import</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#es6-modules" class="docs-toc-link">ES6 Modules</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#commonjs" class="docs-toc-link">CommonJS</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#umd-browser" class="docs-toc-link">UMD (Browser)</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#development-setup" class="docs-toc-link">Development Setup</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#prerequisites" class="docs-toc-link">Prerequisites</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#create-a-new-project" class="docs-toc-link">Create a New Project</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#project-structure" class="docs-toc-link">Project Structure</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#typescript-support" class="docs-toc-link">TypeScript Support</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#verification" class="docs-toc-link">Verification</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#whatrsquos-next" class="docs-toc-link">What&amp;rsquo;s Next?</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#troubleshooting" class="docs-toc-link">Troubleshooting</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-3">
+                        <a href="#common-issues" class="docs-toc-link">Common Issues</a>
+                    </li>
+                
+            </ul>
+        </nav>
+    </div>
+</aside>
+
+
+<style>
+    .docs-toc {
+        position: sticky;
+        top: 100px;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+        width: 240px;
+        margin-left: 40px;
+        flex-shrink: 0;
+    }
+    
+     
+    .docs-toc::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .docs-toc::-webkit-scrollbar-track {
+        background: #2a2a2a;
+    }
+    
+    .docs-toc::-webkit-scrollbar-thumb {
+        background: #DD4124;
+        border-radius: 4px;
+    }
+    
+    .docs-toc::-webkit-scrollbar-thumb:hover {
+        background: #ff5533;
+    }
+
+    .docs-toc-content {
+        padding: 20px;
+        background-color: #2a2a2a;
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+
+    .docs-toc-title {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .docs-toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .docs-toc-item {
+        margin-bottom: 8px;
+    }
+
+    .docs-toc-level-2 {
+        padding-left: 0;
+    }
+
+    .docs-toc-level-3 {
+        padding-left: 15px;
+    }
+
+    .docs-toc-level-4 {
+        padding-left: 30px;
+    }
+
+    .docs-toc-link {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 1.4;
+        padding: 4px 0;
+        transition: color 0.2s ease;
+        border-left: 2px solid transparent;
+        padding-left: 8px;
+        margin-left: -8px;
+    }
+
+    .docs-toc-link:hover {
+        color: #fff;
+    }
+
+    .docs-toc-link.active {
+        color: #DD4124;
+        border-left-color: #DD4124;
+    }
+
+     
+    @media (max-width: 1024px) {
+        .docs-toc {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const headings = document.querySelectorAll('h2, h3, h4');
+    const tocLinks = document.querySelectorAll('.docs-toc-link');
+    
+    headings.forEach(heading => {
+        if (!heading.id) {
+            const text = heading.textContent.trim();
+            const id = text.toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+            heading.id = id;
+        }
+    });
+
+    
+    function updateTocHighlight() {
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        let currentHeading = null;
+        
+        headings.forEach(heading => {
+            const rect = heading.getBoundingClientRect();
+            if (rect.top <= 100) {
+                currentHeading = heading;
+            }
+        });
+        
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (currentHeading && link.getAttribute('href') === '#' + currentHeading.id) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    
+    window.addEventListener('scroll', updateTocHighlight);
+    updateTocHighlight(); 
+});
+</script>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .docs-theme {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: 'Helvetica Neue', 'Helvetica', 'Roboto', sans-serif;
+        }
+
+         
+        .machvive-top-stripe {
+            background: 
+                radial-gradient(ellipse at center, 
+                    rgba(255, 255, 255, 0.08) 0%, 
+                    rgba(255, 255, 255, 0.04) 30%,
+                    rgba(255, 255, 255, 0.02) 60%,
+                    transparent 100%
+                ),
+                #00a86b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            position: relative;
+        }
+
+         
+        .l-main__header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+
+         
+        .docs-layout {
+            display: flex;
+            min-height: calc(100vh - 140px);
+            position: relative;
+        }
+
+        .docs-content {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .docs-main {
+            flex: 1;
+            display: flex;
+        }
+
+        .docs-article {
+            flex: 1;
+            display: flex;
+            max-width: 100%;
+        }
+
+        .docs-article-content {
+            flex: 1;
+            padding: 40px;
+            max-width: calc(100% - 280px);
+        }
+
+         
+        .docs-article-content h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .docs-article-content h2 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .docs-article-content h3 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+
+        .docs-article-content h4 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 10px 0;
+        }
+
+        .docs-article-content p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .docs-article-content ul,
+        .docs-article-content ol {
+            color: #ccc;
+            margin: 0 0 20px 0;
+            padding-left: 25px;
+        }
+
+        .docs-article-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .docs-article-content a {
+            color: #DD4124;
+            text-decoration: none;
+        }
+
+        .docs-article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .docs-article-content code {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .docs-article-content pre {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #333;
+        }
+
+        .docs-article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .docs-article-content blockquote {
+            border-left: 4px solid #DD4124;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #888;
+        }
+
+         
+        body::-webkit-scrollbar,
+        html::-webkit-scrollbar,
+        .docs-theme::-webkit-scrollbar,
+        .docs-theme body::-webkit-scrollbar,
+        .docs-theme html::-webkit-scrollbar,
+        .docs-article-content::-webkit-scrollbar {
+            width: 8px !important;
+            height: 8px !important;
+        }
+        
+        body::-webkit-scrollbar-track,
+        html::-webkit-scrollbar-track,
+        .docs-theme::-webkit-scrollbar-track,
+        .docs-theme body::-webkit-scrollbar-track,
+        .docs-theme html::-webkit-scrollbar-track,
+        .docs-article-content::-webkit-scrollbar-track {
+            background: #2a2a2a !important;
+            border-radius: 0 !important;
+        }
+        
+        body::-webkit-scrollbar-thumb,
+        html::-webkit-scrollbar-thumb,
+        .docs-theme::-webkit-scrollbar-thumb,
+        .docs-theme body::-webkit-scrollbar-thumb,
+        .docs-theme html::-webkit-scrollbar-thumb,
+        .docs-article-content::-webkit-scrollbar-thumb {
+            background: #fff !important;
+            background-color: #fff !important;
+            border-radius: 4px !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        body::-webkit-scrollbar-thumb:hover,
+        html::-webkit-scrollbar-thumb:hover,
+        .docs-theme::-webkit-scrollbar-thumb:hover,
+        .docs-theme body::-webkit-scrollbar-thumb:hover,
+        .docs-theme html::-webkit-scrollbar-thumb:hover,
+        .docs-article-content::-webkit-scrollbar-thumb:hover {
+            background: #ccc !important;
+            background-color: #ccc !important;
+        }
+        
+        body::-webkit-scrollbar-corner,
+        html::-webkit-scrollbar-corner,
+        .docs-theme::-webkit-scrollbar-corner {
+            background: #2a2a2a !important;
+        }
+        
+         
+        .docs-article-content .fa,
+        .docs-article-content .fas,
+        .docs-article-content .far,
+        .docs-article-content .fab,
+        .docs-article-content i[class*="fa-"] {
+            color: #DD4124 !important;
+            margin-right: 8px !important;
+            font-size: 16px !important;
+            vertical-align: middle !important;
+            display: inline-block !important;
+        }
+        
+         
+        .docs-toc::-webkit-scrollbar {
+            width: 8px !important;
+        }
+        
+        .docs-toc::-webkit-scrollbar-track {
+            background: #2a2a2a !important;
+        }
+        
+        .docs-toc::-webkit-scrollbar-thumb {
+            background: #DD4124 !important;
+            background-color: #DD4124 !important;
+            border-radius: 4px !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .docs-toc::-webkit-scrollbar-thumb:hover {
+            background: #ff5533 !important;
+            background-color: #ff5533 !important;
+        }
+
+         
+        @media (max-width: 768px) {
+            .docs-content {
+                margin-left: 0;
+            }
+
+            .docs-article-content {
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .docs-article-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const mobileToggle = document.querySelector('.docs-mobile-toggle');
+        const sidebar = document.querySelector('.docs-sidebar');
+        const body = document.body;
+        
+        if (mobileToggle && sidebar) {
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'docs-mobile-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 99;
+                display: none;
+            `;
+            body.appendChild(overlay);
+            
+            function toggleSidebar() {
+                mobileToggle.classList.toggle('active');
+                sidebar.classList.toggle('open');
+                
+                if (sidebar.classList.contains('open')) {
+                    overlay.style.display = 'block';
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                        overlay.style.visibility = 'visible';
+                    }, 10);
+                    body.style.overflow = 'hidden';
+                } else {
+                    overlay.style.opacity = '0';
+                    overlay.style.visibility = 'hidden';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 300);
+                    body.style.overflow = '';
+                }
+            }
+            
+            mobileToggle.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+            
+            
+            const sidebarLinks = sidebar.querySelectorAll('a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                        toggleSidebar();
+                    }
+                });
+            });
+            
+            
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && sidebar.classList.contains('open')) {
+                    toggleSidebar();
+                }
+            });
+            
+            
+            function updateMobileToggleVisibility() {
+                if (window.innerWidth <= 768) {
+                    overlay.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
+                } else {
+                    overlay.style.display = 'none';
+                    if (sidebar.classList.contains('open')) {
+                        toggleSidebar();
+                    }
+                }
+            }
+            
+            window.addEventListener('resize', updateMobileToggleVisibility);
+            updateMobileToggleVisibility();
+        }
+    });
+    </script>
+</body>
+</html>
