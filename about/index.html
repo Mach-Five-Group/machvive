@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="footer-content">
         <div class="footer-grid">
             
-            <div class="footer-section">
+            <div class="footer-section footer-widget-section">
                 <neodigm-widget 
                     data-n55-widget-id="effect_two_word_rotate"
                     data-n55-theme="primary"
@@ -515,10 +515,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
      
-    neodigm-widget[data-n55-widget-id="effect_two_word_rotate"] {
+    .footer-widget-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-widget-section neodigm-widget[data-n55-widget-id="effect_two_word_rotate"] {
         margin-bottom: 20px;
         margin-top: 0;
         display: block;
+        order: -1;
     }
     
     .footer-heading {
