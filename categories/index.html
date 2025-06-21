@@ -159,24 +159,17 @@
     .mobile-nav-drawer {
         position: fixed;
         top: 0;
-        bottom: 0;
         right: -280px;
         width: 280px;
-        height: 100%;
-        min-height: 100%;
+        height: 100vh;
         background-color: #1a1a1a;
         border-left: 1px solid #333;
         transition: right 0.3s ease;
         z-index: 999;
         transform: translateZ(0);
-         
         overflow-y: auto;
         overflow-x: hidden;
-         
         padding-top: 70px;
-         
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
     }
     
     .mobile-nav-drawer.open {
@@ -258,13 +251,6 @@
             position: relative;
         }
         
-         
-        body.mobile-menu-open {
-            overflow: hidden !important;
-            position: fixed !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
         
          
         .mobile-nav-drawer {
@@ -322,15 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.classList.toggle('active');
         mobileNavDrawer.classList.toggle('open');
         overlay.classList.toggle('active');
-        
-        
-        if (mobileNavDrawer.classList.contains('open')) {
-            body.classList.add('mobile-menu-open');
-            body.style.overflow = 'hidden';
-        } else {
-            body.classList.remove('mobile-menu-open');
-            body.style.overflow = '';
-        }
+        body.style.overflow = mobileNavDrawer.classList.contains('open') ? 'hidden' : '';
     }
     
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
