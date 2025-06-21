@@ -84,6 +84,12 @@
 </nav>
 
 <style>
+     
+    html, body {
+        overflow-x: hidden;
+        position: relative;
+    }
+    
     .main-nav {
         position: relative;
     }
@@ -187,6 +193,9 @@
         transition: right 0.3s ease;
         z-index: 999;
         transform: translateZ(0);
+         
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     
     .mobile-nav-drawer.open {
@@ -239,6 +248,32 @@
         
         .l-main__header {
             overflow: visible;
+        }
+        
+         
+        .main-nav {
+            overflow: hidden;
+        }
+        
+         
+        html {
+            overflow-x: hidden !important;
+            width: 100%;
+        }
+        
+        body {
+            overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
+        }
+        
+         
+        .mobile-nav-drawer {
+            visibility: hidden;
+        }
+        
+        .mobile-nav-drawer.open {
+            visibility: visible;
         }
     }
     
