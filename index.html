@@ -1180,22 +1180,24 @@ document.addEventListener('DOMContentLoaded', function() {
      
     .feature-card::after {
         content: '';
-        position: absolute;
-        top: -50px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle at center, 
-            rgba(255, 255, 255, 0.25) 0%, 
-            rgba(255, 255, 255, 0.15) 20%,
-            rgba(255, 255, 255, 0.08) 40%,
-            rgba(255, 255, 255, 0.04) 60%,
-            transparent 80%
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(ellipse 100vw 60vh at 50% 50%, 
+            rgba(255, 255, 255, 0.15) 0%, 
+            rgba(255, 255, 255, 0.08) 30%,
+            rgba(255, 255, 255, 0.04) 50%,
+            transparent 70%
         );
         pointer-events: none;
         z-index: -1;
-        border-radius: 50%;
+    }
+    
+     
+    .feature-card:not(:first-child)::after {
+        display: none;
     }
     
     .feature-card > * {
