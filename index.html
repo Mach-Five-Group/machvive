@@ -263,18 +263,20 @@
          
         .nav-container {
             padding: 0 15px;
+            justify-content: center;
+            position: relative;
         }
         
         .nav-brand {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
+            position: static;
+            transform: none;
         }
         
         .mobile-menu-btn {
-            margin-left: auto;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
         }
         
          
