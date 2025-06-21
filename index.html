@@ -991,6 +991,7 @@ document.addEventListener('DOMContentLoaded', function() {
         margin: 0 auto;
         border-top: 2px solid #DD4124;
         position: relative;
+        overflow: hidden;
     }
     
      
@@ -1185,15 +1186,15 @@ document.addEventListener('DOMContentLoaded', function() {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 150%;
-        height: 120%;
-        background: radial-gradient(circle at center, 
+        width: 120%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, 
             rgba(255, 255, 255, 0.3) 0%, 
-            rgba(255, 255, 255, 0.3) 30%,
-            rgba(255, 255, 255, 0.25) 50%,
-            rgba(255, 255, 255, 0.15) 65%,
-            rgba(255, 255, 255, 0.05) 80%,
-            transparent 90%
+            rgba(255, 255, 255, 0.3) 40%,
+            rgba(255, 255, 255, 0.2) 60%,
+            rgba(255, 255, 255, 0.1) 75%,
+            rgba(255, 255, 255, 0.03) 85%,
+            transparent 100%
         );
         pointer-events: none;
         z-index: 1;
