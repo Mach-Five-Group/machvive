@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-01.png" alt="Difference" class="feature-icon">
-                        <h3 class="txt--danger">Difference</h3>
+                        <h3>Difference</h3>
                     </div>
                     <p>MachVive is different. It's a framework that doesn't get in the way. It's unobtrusive and highly configurable. It's deployed for interactive chat experiences.</p>
                 </div>
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-02.png" alt="Performance" class="feature-icon">
-                        <h3 class="txt--danger">Performance</h3>
+                        <h3>Performance</h3>
                     </div>
                     <p>Built with vanilla JavaScript and CSS, MachVive prioritizes speed. MachVive is fast, responsive, low-code, analytics friendly, modular, and secure. It doesn't break. It's opinionated by design to handle thousands of concurrent business experiences.</p>
                 </div>
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-03.png" alt="Simplicity" class="feature-icon">
-                        <h3 class="txt--danger">Simplicity</h3>
+                        <h3>Simplicity</h3>
                     </div>
                     <p>MachVive is the anti-framework. Its intuitive developer experience without sacrificing power. Its intuitive developer experience with AI based agility without sacrificing power. Simple &gt; complex.</p>
                 </div>
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-04.png" alt="Acceleration" class="feature-icon">
-                        <h3 class="txt--danger">Acceleration</h3>
+                        <h3>Acceleration</h3>
                     </div>
                     <p>Designed for the modern attention economy, MachVive acts as a rheostat of accelerometer aligned digital touchpoints within CIAM.</p>
                 </div>
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-05.png" alt="Declarative" class="feature-icon">
-                        <h3 class="txt--danger">Declarative</h3>
+                        <h3>Declarative</h3>
                     </div>
                     <p>Built with vanilla JavaScript and an HTML-first approach, MachVive is fast, responsive, low-code, analytics friendly, accessible, and designed to scale. It's opinionated by design to handle complex UX. declarative &gt; imperative.</p>
                 </div>
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-header">
                         <img src="/img/Icon-06.png" alt="Plug-in" class="feature-icon">
-                        <h3 class="txt--danger">Plug-in</h3>
+                        <h3>Plug-in</h3>
                     </div>
                     <p>MachVive is the anti-framework for developers who want simplicity without sacrificing ability to extend functionality experience with AI based experience data in JSON2.</p>
                 </div>
@@ -1185,8 +1185,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .feature-card h3 {
         margin: 0;
-        font-size: 20px;
-        color: #DD4124;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover h3 {
+        background: linear-gradient(135deg, #DD4124 0%, #ff6b4a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        transform: translateX(5px);
     }
     
     .feature-card p {
