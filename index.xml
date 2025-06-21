@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>MachVive</title>
+    <link>https://www.machvive.com/</link>
+    <description>Recent content on MachVive</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.machvive.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About MachVive</title>
-      <link>http://example.org/about/</link>
+      <link>https://www.machvive.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/about/</guid>
+      <guid>https://www.machvive.com/about/</guid>
       <description>About MachVive What is MachVive? MachVive is a lightweight, high-performance framework designed for developers who want to build responsive web applications without the complexity. Unlike other frameworks that can feel overwhelming, MachVive gets out of your way and lets you focus on what matters - creating great user experiences.
 Built with vanilla JavaScript and CSS, MachVive delivers optimal performance while remaining highly configurable to fit your specific needs. Whether you&amp;rsquo;re building a simple landing page or a complex web application, MachVive provides the tools you need without the bloat you don&amp;rsquo;t.</description>
     </item>

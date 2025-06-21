@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/about/</loc>
+    <loc>https://www.machvive.com/about/</loc>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://www.machvive.com/categories/</loc>
   </url><url>
-    <loc>http://example.org/docs/installation/</loc>
+    <loc>https://www.machvive.com/docs/installation/</loc>
   </url><url>
-    <loc>http://example.org/docs/</loc>
+    <loc>https://www.machvive.com/</loc>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://www.machvive.com/docs/</loc>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://www.machvive.com/tags/</loc>
   </url>
 </urlset>
