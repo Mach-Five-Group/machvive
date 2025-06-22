@@ -362,6 +362,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (mobileNavDrawer.classList.contains('open')) {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                toggleMobileMenu();
+            }, 100); 
+        }
+    });
 });
 </script>
 </header>
