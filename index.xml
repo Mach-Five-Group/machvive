@@ -2,19 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MachVive</title>
-    <link>https://www.machvive.com/index.html</link>
+    <link>https://www.machvive.com/</link>
     <description>Recent content on MachVive</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://www.machvive.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Installation</title>
-      <link>https://www.machvive.com/docs/installation/</link>
+      <title>About MachVive</title>
+      <link>https://www.machvive.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.machvive.com/docs/installation/</guid>
-      <description>Getting started with MachVive is quick and easy. Choose the installation method that works best for your project.
-Package Manager Installation npm npm install @machvive/core yarn yarn add @machvive/core pnpm pnpm add @machvive/core CDN Installation For quick prototyping or simple projects, you can include MachVive directly from a CDN:
-&amp;lt;script src=&amp;#34;https://unpkg.com/@machvive/core@latest/dist/machvive.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; Module Import ES6 Modules import { MachVive, Component } from &amp;#39;@machvive/core&amp;#39;; CommonJS const { MachVive, Component } = require(&amp;#39;@machvive/core&amp;#39;); UMD (Browser) &amp;lt;script src=&amp;#34;https://unpkg.</description>
+      <guid>https://www.machvive.com/about/</guid>
+      <description>About MachVive What is MachVive? MachVive is a lightweight, high-performance framework designed for developers who want to build responsive web applications without the complexity. Unlike other frameworks that can feel overwhelming, MachVive gets out of your way and lets you focus on what matters - creating great user experiences.
+Built with vanilla JavaScript and CSS, MachVive delivers optimal performance while remaining highly configurable to fit your specific needs. Whether you&amp;rsquo;re building a simple landing page or a complex web application, MachVive provides the tools you need without the bloat you don&amp;rsquo;t.</description>
+    </item>
+    
+  </channel>
+</rss>
+ser) &amp;lt;script src=&amp;#34;https://unpkg.</description>
     </item>
     
     <item>
