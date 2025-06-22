@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Documentation Page Specific Styles
+   ========================================================================== */
+
+/* Documentation theme */
+.docs-theme {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Roboto', sans-serif;
+}
+
+/* Documentation layout */
+.docs-layout {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    position: relative;
+}
+
+.docs-content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 280px);
+}
+
+.docs-main {
+    flex: 1;
+    display: flex;
+}
+
+.docs-article {
+    flex: 1;
+    display: flex;
+    max-width: 100%;
+}
+
+.docs-article-content {
+    flex: 1;
+    padding: 40px;
+}
+
+/* Typography for documentation content */
+.docs-article-content h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.docs-article-content h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.docs-article-content h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
+}
+
+.docs-article-content h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 25px 0 10px 0;
+}
+
+.docs-article-content p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.docs-article-content ul,
+.docs-article-content ol {
+    color: #ccc;
+    margin: 0 0 20px 0;
+    padding-left: 25px;
+}
+
+.docs-article-content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.docs-article-content a {
+    color: #DD4124;
+    text-decoration: none;
+}
+
+.docs-article-content a:hover {
+    text-decoration: underline;
+}
+
+.docs-article-content code {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.docs-article-content pre {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid #333;
+}
+
+.docs-article-content pre code {
+    background: none;
+    padding: 0;
+}
+
+.docs-article-content blockquote {
+    border-left: 4px solid #DD4124;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #888;
+}
+
+/* Aggressive white scrollbar override for neodigm - excluding TOC */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.docs-theme::-webkit-scrollbar,
+.docs-theme body::-webkit-scrollbar,
+.docs-theme html::-webkit-scrollbar,
+.docs-article-content::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+body::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track,
+.docs-theme::-webkit-scrollbar-track,
+.docs-theme body::-webkit-scrollbar-track,
+.docs-theme html::-webkit-scrollbar-track,
+.docs-article-content::-webkit-scrollbar-track {
+    background: #2a2a2a !important;
+    border-radius: 0 !important;
+}
+
+body::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+.docs-theme::-webkit-scrollbar-thumb,
+.docs-theme body::-webkit-scrollbar-thumb,
+.docs-theme html::-webkit-scrollbar-thumb,
+.docs-article-content::-webkit-scrollbar-thumb {
+    background: #fff !important;
+    background-color: #fff !important;
+    border-radius: 4px !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:hover,
+.docs-theme::-webkit-scrollbar-thumb:hover,
+.docs-theme body::-webkit-scrollbar-thumb:hover,
+.docs-theme html::-webkit-scrollbar-thumb:hover,
+.docs-article-content::-webkit-scrollbar-thumb:hover {
+    background: #ccc !important;
+    background-color: #ccc !important;
+}
+
+body::-webkit-scrollbar-corner,
+html::-webkit-scrollbar-corner,
+.docs-theme::-webkit-scrollbar-corner {
+    background: #2a2a2a !important;
+}
+
+/* Ensure TOC orange scrollbar takes precedence */
+.docs-toc::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.docs-toc::-webkit-scrollbar-track {
+    background: #2a2a2a !important;
+}
+
+.docs-toc::-webkit-scrollbar-thumb {
+    background: #DD4124 !important;
+    background-color: #DD4124 !important;
+    border-radius: 4px !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.docs-toc::-webkit-scrollbar-thumb:hover {
+    background: #ff5533 !important;
+    background-color: #ff5533 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .docs-content {
+        margin-left: 0;
+    }
+
+    .docs-article-content {
+        padding: 20px;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .docs-article-content {
+        max-width: 100%;
+    }
+}

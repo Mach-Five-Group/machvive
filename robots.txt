@@ -1,0 +1,15 @@
+# Robots.txt for MachVive.com
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.machvive.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+# Crawl-delay: 1
+
+# Disallow any private or development paths if they exist
+# Disallow: /admin/
+# Disallow: /private/

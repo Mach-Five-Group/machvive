@@ -1,0 +1,97 @@
+/* ==========================================================================
+   About Page Specific Styles
+   ========================================================================== */
+
+/* About page layout */
+.about-layout {
+    min-height: calc(100vh - 140px);
+    padding: 60px 20px;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content {
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid texture background */
+.about-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 100%;
+    max-width: calc(100vw - 40px);
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Typography */
+.about-content h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content h2 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 50px 0 25px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content p {
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 25px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content a {
+    color: #DD4124;
+    text-decoration: none;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .about-layout {
+        padding: 40px 20px;
+    }
+
+    .about-content h1 {
+        font-size: 36px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+    }
+
+    .about-content p {
+        font-size: 16px;
+    }
+}
