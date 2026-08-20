@@ -16,18 +16,18 @@
 Built with vanilla JavaScript and CSS, MachVive delivers optimal performance while remaining highly configurable to fit your specific needs. Whether you&amp;rsquo;re building a simple landing page or a complex web application, MachVive provides the tools you need without the bloat you don&amp;rsquo;t.</description>
     </item>
     
-  </channel>
-</rss>
-ser) &amp;lt;script src=&amp;#34;https://unpkg.</description>
-    </item>
-    
     <item>
-      <title>MachVive Documentation</title>
-      <link>https://www.machvive.com/docs/</link>
+      <title>Contact</title>
+      <link>https://www.machvive.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.machvive.com/docs/</guid>
-      <description>Welcome Welcome to the MachVive documentation! MachVive is a lightweight, high-performance framework for building responsive web applications. It&amp;rsquo;s designed to be simple, fast, and developer-friendly.
+      <guid>https://www.machvive.com/contact/</guid>
+      <description>Contact Framework questions come back to us. Implementation and enterprise work goes to Mach Five Tech, the consulting arm of Mach Five Group.</description>
+    </item>
+    
+  </channel>
+</rss>
+ance framework for building responsive web applications. It&amp;rsquo;s designed to be simple, fast, and developer-friendly.
 What is MachVive? MachVive is different from other frameworks. It&amp;rsquo;s a framework that doesn&amp;rsquo;t get in the way. It&amp;rsquo;s unobtrusive, highly configurable, and built with vanilla JavaScript and CSS for maximum performance.
 Key Features High Performance - Built with vanilla JavaScript for optimal speed Responsive - Mobile-first design that works everywhere Customizable - Highly configurable to fit your needs Future-proof - Modern architecture that scales Open Source - Free forever and community-driven Quick Start Get up and running with MachVive in minutes:</description>
     </item>

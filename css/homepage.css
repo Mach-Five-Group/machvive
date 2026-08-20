@@ -508,6 +508,80 @@
     margin: 0;
 }
 
+/* Reach the team section */
+.machvive-connect {
+    padding: 60px 20px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 2px solid #DD4124;
+    position: relative;
+}
+
+/* Grid background pattern for connect section */
+.machvive-connect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Subtle spotlight effect */
+.machvive-connect::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.10) 0%,
+        rgba(255, 255, 255, 0.06) 35%,
+        rgba(255, 255, 255, 0.03) 55%,
+        transparent 80%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.connect-wrapper {
+    position: relative;
+    z-index: 5;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.connect-heading {
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.connect-copy {
+    color: #888;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+}
+
 /* Responsive */
 @media only screen and (max-width: 768px) {
     .machvive-hero {
@@ -556,6 +630,19 @@
         max-width: 90%;
         line-height: 1.4;
         margin: 25px auto 0;
+    }
+
+    .machvive-connect {
+        padding: 40px 15px 60px;
+    }
+
+    .connect-heading {
+        font-size: 24px;
+    }
+
+    .connect-copy {
+        font-size: 16px;
+        margin-bottom: 25px;
     }
 }
 

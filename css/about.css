@@ -77,6 +77,13 @@
     text-decoration: underline;
 }
 
+/* Inline magnet slot (base styles live in main.css) */
+.about-content .magnet-slot {
+    margin: 40px 0 0;
+    position: relative;
+    z-index: 1;
+}
+
 /* Mach Five Ecosystem Section */
 .mach-five-ecosystem {
     display: grid;
@@ -91,66 +98,51 @@
 .mach-five-ecosystem::before {
     content: '';
     position: absolute;
-    top: -80px;
-    left: -80px;
-    right: -80px;
-    bottom: -80px;
+    top: -60px;
+    left: -60px;
+    right: -60px;
+    bottom: -60px;
     background: 
-        radial-gradient(ellipse 500px 350px at 15% 40%, rgba(221, 65, 36, 0.18) 0%, transparent 55%),
-        radial-gradient(ellipse 400px 280px at 85% 25%, rgba(221, 65, 36, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse 350px 250px at 50% 85%, rgba(221, 65, 36, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse 450px 300px at 70% 60%, rgba(221, 65, 36, 0.10) 0%, transparent 65%);
+        radial-gradient(ellipse 400px 300px at 50% 50%, rgba(221, 65, 36, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 350px 250px at 50% 40%, rgba(221, 65, 36, 0.06) 0%, transparent 75%);
     pointer-events: none;
     z-index: -1;
-    animation: spotlightPulse 12s ease-in-out infinite;
+    animation: spotlightPulse 16s ease-in-out infinite;
 }
 
 /* Additional ambient lighting layer */
 .mach-five-ecosystem::after {
     content: '';
     position: absolute;
-    top: -60px;
-    left: -60px;
-    right: -60px;
-    bottom: -60px;
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
     background: 
-        radial-gradient(ellipse 600px 400px at 30% 70%, rgba(221, 65, 36, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 550px 350px at 80% 80%, rgba(221, 65, 36, 0.06) 0%, transparent 75%);
+        radial-gradient(ellipse 500px 350px at 50% 60%, rgba(221, 65, 36, 0.04) 0%, transparent 80%);
     pointer-events: none;
     z-index: -2;
-    animation: ambientGlow 15s ease-in-out infinite reverse;
+    animation: ambientGlow 20s ease-in-out infinite reverse;
 }
 
 @keyframes spotlightPulse {
     0%, 100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.8;
-    }
-    25% {
-        transform: scale(1.03) rotate(0.5deg);
-        opacity: 0.9;
+        transform: scale(1);
+        opacity: 0.7;
     }
     50% {
-        transform: scale(0.97) rotate(-0.5deg);
+        transform: scale(1.02);
         opacity: 0.85;
-    }
-    75% {
-        transform: scale(1.02) rotate(0.3deg);
-        opacity: 0.95;
     }
 }
 
 @keyframes ambientGlow {
     0%, 100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.6;
+        transform: scale(1);
+        opacity: 0.5;
     }
-    33% {
-        transform: scale(1.08) rotate(1.5deg);
-        opacity: 0.8;
-    }
-    66% {
-        transform: scale(0.92) rotate(-1deg);
+    50% {
+        transform: scale(1.05);
         opacity: 0.7;
     }
 }
@@ -173,27 +165,27 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(ellipse 300px 200px at 50% 50%, rgba(221, 65, 36, 0.15) 0%, transparent 60%),
-        linear-gradient(135deg, rgba(221, 65, 36, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse 200px 150px at 50% 50%, rgba(221, 65, 36, 0.08) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(221, 65, 36, 0.05) 0%, transparent 60%);
     opacity: 0;
     transition: all 0.4s ease;
     pointer-events: none;
-    transform: scale(0.8);
+    transform: scale(0.9);
 }
 
 .ecosystem-card::after {
     content: '';
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: radial-gradient(ellipse 250px 180px at 50% 50%, rgba(221, 65, 36, 0.12) 0%, transparent 70%);
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(ellipse 180px 130px at 50% 50%, rgba(221, 65, 36, 0.06) 0%, transparent 75%);
     opacity: 0;
     transition: all 0.5s ease;
     pointer-events: none;
     z-index: -1;
-    transform: scale(0.9) rotate(0deg);
+    transform: scale(0.95);
 }
 
 .ecosystem-card:hover {
@@ -211,7 +203,7 @@
 
 .ecosystem-card:hover::after {
     opacity: 1;
-    transform: scale(1.1) rotate(2deg);
+    transform: scale(1.05);
 }
 
 .ecosystem-logo {
@@ -349,14 +341,13 @@
 
     /* Reduce spotlight effects on mobile for performance */
     .mach-five-ecosystem::before {
-        top: -40px;
-        left: -40px;
-        right: -40px;
-        bottom: -40px;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
         background: 
-            radial-gradient(ellipse 300px 200px at 25% 50%, rgba(221, 65, 36, 0.15) 0%, transparent 60%),
-            radial-gradient(ellipse 250px 180px at 75% 40%, rgba(221, 65, 36, 0.12) 0%, transparent 65%);
-        animation: spotlightPulseMobile 10s ease-in-out infinite;
+            radial-gradient(ellipse 250px 180px at 50% 50%, rgba(221, 65, 36, 0.06) 0%, transparent 70%);
+        animation: spotlightPulseMobile 14s ease-in-out infinite;
     }
 
     .mach-five-ecosystem::after {
@@ -367,10 +358,10 @@
 @keyframes spotlightPulseMobile {
     0%, 100% {
         transform: scale(1);
-        opacity: 0.7;
+        opacity: 0.6;
     }
     50% {
-        transform: scale(1.05);
-        opacity: 0.85;
+        transform: scale(1.03);
+        opacity: 0.75;
     }
 }
