@@ -362,29 +362,6 @@ html, body {
     min-height: 2.4em;
 }
 
-.footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.email-icon {
-    width: 16px;
-    height: 16px;
-    color: #DD4124;
-}
-
-.footer-contact a {
-    color: #888;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.footer-contact a:hover {
-    color: #DD4124;
-}
-
 .footer-links {
     list-style: none;
     padding: 0;
@@ -635,9 +612,6 @@ html::-webkit-scrollbar-corner,
         max-width: 100%;
     }
     
-    .footer-contact {
-        justify-content: center;
-    }
 }
 
 /* Hide mobile menu on desktop */

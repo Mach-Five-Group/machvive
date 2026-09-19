@@ -68,6 +68,31 @@
     z-index: 1;
 }
 
+/* Lists match paragraph typography */
+.about-content ul {
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 25px 0;
+    padding-left: 1.4em;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content li {
+    margin: 0 0 12px 0;
+    padding-left: 0.25em;
+}
+
+.about-content li::marker {
+    color: #DD4124;
+}
+
+.about-content li strong {
+    color: #fff;
+    font-weight: 600;
+}
+
 .about-content a {
     color: #DD4124;
     text-decoration: none;
@@ -291,7 +316,8 @@
         font-size: 24px;
     }
 
-    .about-content p {
+    .about-content p,
+    .about-content ul {
         font-size: 16px;
     }
 
