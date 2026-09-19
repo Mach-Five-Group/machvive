@@ -207,49 +207,24 @@
 }
 
 .ecosystem-logo {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
-/* Brand-specific logo colors */
-.ecosystem-logo-group {
-    background: #ffffff;
-}
-
-.ecosystem-logo-group .ecosystem-number {
-    color: #1a1a1a;
-}
-
-.ecosystem-logo-marketing {
-    background: #34495E;
-}
-
-.ecosystem-logo-marketing .ecosystem-number {
-    color: #fff;
-}
-
-.ecosystem-logo-tech {
-    background: #DD4124;
-}
-
-.ecosystem-logo-tech .ecosystem-number {
-    color: #fff;
+.ecosystem-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .ecosystem-card:hover .ecosystem-logo {
     transform: scale(1.1);
-}
-
-.ecosystem-number {
-    font-size: 28px;
-    font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .ecosystem-card h3 {

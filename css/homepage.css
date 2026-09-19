@@ -114,7 +114,8 @@
 
 /* NPM section */
 .machvive-npm-section {
-    flex: 0 0 400px;
+    flex: 0 1 560px;
+    max-width: 100%;
     text-align: center;
 }
 
@@ -185,16 +186,18 @@
     background-color: #1e1e1e;
     border: 1px solid #333;
     border-radius: 6px;
-    padding: 16px 20px;
+    padding: 14px 16px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.5;
     color: #fff;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     position: relative;
     margin-bottom: 30px;
     overflow: visible;
+    text-align: left;
 }
 
 .copy-notification {
@@ -223,17 +226,25 @@
     color: #888;
 }
 
+.npm-prefix,
+.npm-command {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 .npm-command {
     color: #DD4124;
 }
 
 .npm-package {
     color: #4fc3f7;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .copy-btn {
-    position: absolute;
-    right: 12px;
+    margin-left: auto;
+    flex-shrink: 0;
     background: none;
     border: none;
     color: #666;
@@ -265,8 +276,9 @@
     cursor: help;
 }
 
-.npm-install-box.is-coming-soon {
-    padding-right: 44px;
+.machvive-quote {
+    color: #DD4124;
+    font-weight: 700;
 }
 
 .machvive-cta-row {
@@ -592,6 +604,9 @@
 
     .npm-install-box {
         margin-bottom: 20px;
+        font-size: 13px;
+        padding: 12px 14px;
+        gap: 8px;
     }
 
     .machvive-get-started {
