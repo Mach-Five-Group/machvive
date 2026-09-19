@@ -24,7 +24,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 
-<meta name="author" content="Mach Five Group">
+<meta name="author" content="Mach Five Tech">
 
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -38,9 +38,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title"       content="Installation | MachVive Documentation">
     <meta property="og:site_name"   content="MachVive">
     <meta property="og:url"         content="https://www.machvive.com/docs/installation/">
-    <meta property="og:description" content="Getting started with MachVive is quick and easy. Choose the installation method that works best for your project.
-Package Manager Installation npm npm install @machvive/core yarn yarn add @machvive/core pnpm pnpm add @machvive/core CDN Installation For quick prototyping or simple projects, you can include MachVive directly from a CDN:
-&lt;script src=&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.min.js&#34;&gt;&lt;/script&gt; Module Import ES6 Modules import { MachVive, Component } from &#39;@machvive/core&#39;; CommonJS const { MachVive, Component } = require(&#39;@machvive/core&#39;); UMD (Browser) &lt;script src=&#34;https://unpkg.">
+    <meta property="og:description" content="MachVive is a single npm package of vanilla web components. Install it with a package manager, or load one module script from a CDN with no build step.
+npm npm install @machfivetechchicago/machvive-webmcp-ai yarn add @machfivetechchicago/machvive-webmcp-ai pnpm add @machfivetechchicago/machvive-webmcp-ai Then import what you need in your entry script. Importing a module registers its custom element. There is no init function to call.
+// Cherry-pick for smaller bundles import &#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;; import &#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-inspect&#39;; import &#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics&#39;; // Or register all components at once import &#39;@machfivetechchicago/machvive-webmcp-ai&#39;; The subpaths are /webmcp-polyfill, /webmcp-inspect, /webmcp-analytics and /lorum-ipsum.">
     <meta property="og:type"        content="website">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,12 +50,13 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
 
 <body class="docs-theme">
     
-    <div class="machvive-top-stripe">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 8px; vertical-align: middle;">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="white"/>
-        </svg>
-        MachVive is open source and free forever - contribute on GitHub
-    </div>
+<a class="machvive-top-stripe" href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 8px; vertical-align: middle;" aria-hidden="true">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="white"/>
+    </svg>
+    MachVive is open source under Apache 2.0. Star it, fork it, ship it.
+</a>
+
 
     <header class="l-main__header">
         <nav class="main-nav">
@@ -72,7 +73,7 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
             <a href="/about" class="nav-link">About</a>
             <a href="/docs/" class="nav-link">Documentation</a>
             <a href="/contact/" class="nav-link">Contact</a>
-            <a href="https://github.com/Mach-Five-Group/" target="_blank" class="nav-link github-link">
+            <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener" class="nav-link github-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
@@ -93,7 +94,7 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
             <a href="/about" class="mobile-nav-link">About</a>
             <a href="/docs/" class="mobile-nav-link">Documentation</a>
             <a href="/contact/" class="mobile-nav-link">Contact</a>
-            <a href="https://github.com/Mach-Five-Group/" target="_blank" class="mobile-nav-link github-mobile">
+            <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener" class="mobile-nav-link github-mobile">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
@@ -125,32 +126,18 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
                     <li><a href="/docs/" class="docs-nav-link ">Introduction</a></li>
                     <li><a href="/docs/installation/" class="docs-nav-link active">Installation</a></li>
                     <li><a href="/docs/quick-start/" class="docs-nav-link ">Quick Start</a></li>
+                    <li><a href="/docs/components/" class="docs-nav-link ">Components</a></li>
                 </ul>
             </div>
 
             <div class="docs-nav-section">
-                <h3 class="docs-nav-title">Core Concepts</h3>
+                <h3 class="docs-nav-title">Project</h3>
                 <ul class="docs-nav-list">
-                    <li><a href="/docs/concepts/components/" class="docs-nav-link ">Components</a></li>
-                    <li><a href="/docs/concepts/styling/" class="docs-nav-link ">Styling</a></li>
-                    <li><a href="/docs/concepts/reactivity/" class="docs-nav-link ">Reactivity</a></li>
-                </ul>
-            </div>
-
-            <div class="docs-nav-section">
-                <h3 class="docs-nav-title">API Reference</h3>
-                <ul class="docs-nav-list">
-                    <li><a href="/docs/api/core/" class="docs-nav-link ">Core API</a></li>
-                    <li><a href="/docs/api/components/" class="docs-nav-link ">Components</a></li>
-                    <li><a href="/docs/api/utilities/" class="docs-nav-link ">Utilities</a></li>
-                </ul>
-            </div>
-
-            <div class="docs-nav-section">
-                <h3 class="docs-nav-title">Examples</h3>
-                <ul class="docs-nav-list">
-                    <li><a href="/docs/examples/basic/" class="docs-nav-link ">Basic Usage</a></li>
-                    <li><a href="/docs/examples/advanced/" class="docs-nav-link ">Advanced Examples</a></li>
+                    <li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" class="docs-nav-link" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai" class="docs-nav-link" target="_blank" rel="noopener">npm</a></li>
+                    <li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki" class="docs-nav-link" target="_blank" rel="noopener">Wiki</a></li>
+                    <li><a href="/llms.txt" class="docs-nav-link">llms.txt</a></li>
+                    <li><a href="/contact/" class="docs-nav-link">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -327,7 +314,7 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
     <div class="docs-page-header">
         <h1 class="docs-page-title">Installation</h1>
         
-        <p class="docs-page-description">Learn how to install and set up MachVive in your project with npm, yarn, or CDN.</p>
+        <p class="docs-page-description">Install MachVive from npm or load it buildless from a CDN, then read the two constraints that cause most integration failures.</p>
         
     </div>
 </div>
@@ -488,124 +475,85 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
             <div class="docs-main">
                 <article class="docs-article">
                     <div class="docs-article-content">
-                        <p>Getting started with MachVive is quick and easy. Choose the installation method that works best for your project.</p>
-<h2 id="package-manager-installation">Package Manager Installation</h2>
-<h3 id="npm">npm</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install @machvive/core
-</span></span></code></pre></div><h3 id="yarn">yarn</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add @machvive/core
-</span></span></code></pre></div><h3 id="pnpm">pnpm</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pnpm add @machvive/core
-</span></span></code></pre></div><h2 id="cdn-installation">CDN Installation</h2>
-<p>For quick prototyping or simple projects, you can include MachVive directly from a CDN:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><h2 id="module-import">Module Import</h2>
-<h3 id="es6-modules">ES6 Modules</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@machvive/core&#39;</span>;
-</span></span></code></pre></div><h3 id="commonjs">CommonJS</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@machvive/core&#39;</span>);
-</span></span></code></pre></div><h3 id="umd-browser">UMD (Browser)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/@machvive/core@latest/dist/machvive.umd.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">MachVive</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">MachVive</span>;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><h2 id="development-setup">Development Setup</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<ul>
-<li>Node.js 16.0 or higher</li>
-<li>npm 7.0 or higher (or equivalent yarn/pnpm version)</li>
-</ul>
-<h3 id="create-a-new-project">Create a New Project</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create project directory</span>
-</span></span><span style="display:flex;"><span>mkdir my-machvive-app
-</span></span><span style="display:flex;"><span>cd my-machvive-app
+                        <p>MachVive is a single npm package of vanilla web components. Install it with a package manager, or load one module script from a CDN with no build step.</p>
+<h2 id="npm">npm</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install @machfivetechchicago/machvive-webmcp-ai
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add @machfivetechchicago/machvive-webmcp-ai
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pnpm add @machfivetechchicago/machvive-webmcp-ai
+</span></span></code></pre></div><p>Then import what you need in your entry script. Importing a module registers its custom element. There is no init function to call.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Cherry-pick for smaller bundles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-inspect&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize package.json</span>
-</span></span><span style="display:flex;"><span>npm init -y
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Or register all components at once
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>;
+</span></span></code></pre></div><p>The subpaths are <code>/webmcp-polyfill</code>, <code>/webmcp-inspect</code>, <code>/webmcp-analytics</code> and <code>/lorum-ipsum</code>.</p>
+<h2 id="buildless-cdn">Buildless (CDN)</h2>
+<p>No bundler, no <code>node_modules</code>, no build step. Pin a version and load the module directly. This site loads the package this way.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- everything --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install MachVive</span>
-</span></span><span style="display:flex;"><span>npm install @machvive/core
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- or one component --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>Always pin an exact version in production.</p>
+<h2 id="secure-context-is-required">Secure context is required</h2>
+<p><code>navigator.modelContext</code> is a <code>[SecureContext]</code> API, so the polyfill installs only on HTTPS and on <code>localhost</code>. On plain HTTP it declines with a console warning and <code>navigator.modelContext</code> stays undefined. Serve your page from a local server during development. Opening a file from disk will not work.</p>
+<h2 id="server-side-rendering">Server-side rendering</h2>
+<p>These are browser components. Each one extends <code>HTMLElement</code> at module load, so importing the package during a server render throws:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ReferenceError: HTMLElement is not defined
+</span></span></code></pre></div><p>This never happens in a browser-only setup like Vite. In Next.js, Nuxt, Astro, SvelteKit or Remix, import from a client-only lifecycle hook with a dynamic import. A static top-level import will not work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Next.js App Router: mark the component &#34;use client&#34;, then import on mount
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;use client&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install development dependencies</span>
-</span></span><span style="display:flex;"><span>npm install --save-dev @machvive/cli webpack webpack-cli
-</span></span></code></pre></div><h3 id="project-structure">Project Structure</h3>
-<pre tabindex="0"><code>my-machvive-app/
-├── src/
-│   ├── components/
-│   ├── styles/
-│   └── index.js
-├── public/
-│   └── index.html
-├── package.json
-└── webpack.config.js
-</code></pre><h2 id="typescript-support">TypeScript Support</h2>
-<p>MachVive includes full TypeScript support out of the box:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install @machvive/core
-</span></span><span style="display:flex;"><span>npm install --save-dev typescript @types/node
-</span></span></code></pre></div><p>Create a <code>tsconfig.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;ES2020&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;module&#34;</span>: <span style="color:#e6db74">&#34;ESNext&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;moduleResolution&#34;</span>: <span style="color:#e6db74">&#34;node&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;strict&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;jsx&#34;</span>: <span style="color:#e6db74">&#34;preserve&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;esModuleInterop&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;skipLibCheck&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;forceConsistentCasingInFileNames&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;include&#34;</span>: [<span style="color:#e6db74">&#34;src/**/*&#34;</span>],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;exclude&#34;</span>: [<span style="color:#e6db74">&#34;node_modules&#34;</span>, <span style="color:#e6db74">&#34;dist&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Page</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; { <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>); }, []);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">machvive</span><span style="color:#f92672">-</span><span style="color:#a6e22e">webmcp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">inspect</span> <span style="color:#a6e22e">floating</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/machvive-webmcp-inspect&gt;;</span>
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Nuxt
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">onMounted</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// SvelteKit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onMount</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svelte&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">onMount</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>));
+</span></span></code></pre></div><p>In Astro, put the import in a <code>&lt;script&gt;</code> tag rather than in the component&rsquo;s frontmatter.</p>
+<h2 id="bundler-note">Bundler note</h2>
+<p>Never set <code>&quot;sideEffects&quot;: false</code> for this package. Components self-register with <code>customElements.define()</code>, and tree-shaking a bare side-effect import silently drops the tag registration.</p>
+<h2 id="typescript">TypeScript</h2>
+<p>Declarations ship with the package. No <code>@types/*</code> install is needed. Importing a component augments <code>HTMLElementTagNameMap</code>, and the polyfill declares <code>navigator.modelContext</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#66d9ef">type</span> { <span style="color:#a6e22e">WebmcpToolResult</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span>: <span style="color:#66d9ef">WebmcpToolResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">callTool</span>(<span style="color:#e6db74">&#39;add_to_cart&#39;</span>, { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;A&#39;</span> });
 </span></span></code></pre></div><h2 id="verification">Verification</h2>
-<p>Create a simple test to verify your installation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// src/index.js
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MachVive</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@machvive/core&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MachVive</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>),
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;h1&gt;Hello, MachVive!&lt;/h1&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>});
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;MachVive is working!&#39;</span>, <span style="color:#a6e22e">app</span>);
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- public/index.html --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;MachVive Test&lt;/<span style="color:#f92672">title</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../src/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
-</span></span></code></pre></div><h2 id="whats-next">What&rsquo;s Next?</h2>
-<p>Now that you have MachVive installed, you&rsquo;re ready to start building:</p>
+<p>Load the polyfill, then run this in the DevTools console on an HTTPS or localhost page:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>); <span style="color:#75715e">// &#34;object&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">tools</span>);  <span style="color:#75715e">// [] until you register something
+</span></span></span></code></pre></div><h2 id="whats-next">What&rsquo;s next</h2>
 <ul>
-<li><a href="/docs/quick-start/">Quick Start Guide</a> - Build your first app</li>
-<li><a href="/docs/concepts/components/">Core Concepts</a> - Learn the fundamentals</li>
-<li><a href="/docs/api/core/">API Reference</a> - Explore the complete API</li>
+<li><a href="/docs/quick-start/">Quick Start</a> registers a tool and calls it.</li>
+<li><a href="/docs/components/">Components</a> documents each element.</li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="common-issues">Common Issues</h3>
-<p><strong>Module not found errors:</strong></p>
+<p><strong><code>navigator.modelContext</code> is undefined.</strong></p>
 <ul>
-<li>Ensure you&rsquo;ve installed MachVive: <code>npm list @machvive/core</code></li>
-<li>Check your import paths are correct</li>
+<li>The page is on plain HTTP. Use HTTPS or <code>localhost</code>.</li>
+<li>The polyfill module did not load. Check the Network tab for the script.</li>
 </ul>
-<p><strong>TypeScript errors:</strong></p>
+<p><strong><code>HTMLElement is not defined</code> on the server.</strong></p>
 <ul>
-<li>Install type definitions: <code>npm install --save-dev @types/machvive</code></li>
-<li>Update your <code>tsconfig.json</code> configuration</li>
+<li>You imported the package during SSR. Move the import into a client-only hook with <code>import()</code>.</li>
 </ul>
-<p><strong>Build failures:</strong></p>
+<p><strong>A component tag renders nothing.</strong></p>
 <ul>
-<li>Ensure Node.js version is 16.0 or higher: <code>node --version</code></li>
-<li>Clear your package cache: <code>npm cache clean --force</code></li>
+<li>Its module was never imported, or a bundler tree-shook the side-effect import. Check <code>sideEffects</code>.</li>
 </ul>
-<p>Need more help? Check our <a href="https://github.com/Mach-Five-Group/">GitHub Issues</a> or join the community discussion.</p>
+<p><strong>Analytics shows an empty log.</strong></p>
+<ul>
+<li>Tools were registered before the analytics module loaded. Import analytics first.</li>
+</ul>
+<p>Need more help? Open an issue on <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/issues">GitHub</a> or <a href="/contact/">reach the team</a>.</p>
 
                     </div>
                     
@@ -621,98 +569,42 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#package-manager-installation" class="docs-toc-link">Package Manager Installation</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
                         <a href="#npm" class="docs-toc-link">npm</a>
                     </li>
                 
                     
                     
                     
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#yarn" class="docs-toc-link">yarn</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#pnpm" class="docs-toc-link">pnpm</a>
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#buildless-cdn" class="docs-toc-link">Buildless (CDN)</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#cdn-installation" class="docs-toc-link">CDN Installation</a>
+                        <a href="#secure-context-is-required" class="docs-toc-link">Secure context is required</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#module-import" class="docs-toc-link">Module Import</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#es6-modules" class="docs-toc-link">ES6 Modules</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#commonjs" class="docs-toc-link">CommonJS</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#umd-browser" class="docs-toc-link">UMD (Browser)</a>
+                        <a href="#server-side-rendering" class="docs-toc-link">Server-side rendering</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#development-setup" class="docs-toc-link">Development Setup</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#prerequisites" class="docs-toc-link">Prerequisites</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#create-a-new-project" class="docs-toc-link">Create a New Project</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#project-structure" class="docs-toc-link">Project Structure</a>
+                        <a href="#bundler-note" class="docs-toc-link">Bundler note</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#typescript-support" class="docs-toc-link">TypeScript Support</a>
+                        <a href="#typescript" class="docs-toc-link">TypeScript</a>
                     </li>
                 
                     
@@ -726,7 +618,7 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#whatrsquos-next" class="docs-toc-link">What&amp;rsquo;s Next?</a>
+                        <a href="#whatrsquos-next" class="docs-toc-link">What&amp;rsquo;s next</a>
                     </li>
                 
                     
@@ -734,13 +626,6 @@ Package Manager Installation npm npm install @machvive/core yarn yarn add @machv
                     
                     <li class="docs-toc-item docs-toc-level-2">
                         <a href="#troubleshooting" class="docs-toc-link">Troubleshooting</a>
-                    </li>
-                
-                    
-                    
-                    
-                    <li class="docs-toc-item docs-toc-level-3">
-                        <a href="#common-issues" class="docs-toc-link">Common Issues</a>
                     </li>
                 
             </ul>
@@ -914,11 +799,21 @@ document.addEventListener('DOMContentLoaded', function() {
     </main>
 
     
+    <machvive-webmcp-inspect floating theme="dark"></machvive-webmcp-inspect>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/src/wc/machvive-webmcp-inspect/machvive-webmcp-inspect.js"></script>
+
+    
 <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.js"></script>
 <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55_v1_0_launchComplete.js"></script>
 
 
 <script src="/js/main.js"></script>
+
+
+<script type="module" src="/js/webmcp-site.js"
+        data-webmcp-cdn="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1"
+        data-webmcp-package="@machfivetechchicago/machvive-webmcp-ai"
+        data-webmcp-index="/index.json"></script>
 
 <script src="https://machfivemagnet-saas.onrender.com/m5t/v5/coreSnippet?appguid=aa0d4da3-3c12-453a-8cb0-7e4b0ef86214" async></script>
 

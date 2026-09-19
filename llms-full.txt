@@ -1,0 +1,534 @@
+# MachVive
+
+> MachVive is an open source WebMCP toolset from Mach Five Tech. Vanilla web
+> components that make a web page callable by an AI agent: a polyfill for the W3C
+> WebMCP proposal (`navigator.modelContext`), an inspector for exercising registered
+> tools, and analytics that capture every tool call for replay and export. Zero
+> runtime dependencies, no build step, TypeScript types included. Published on npm
+> as `@machfivetechchicago/machvive-webmcp-ai` under Apache-2.0.
+
+"I don't want to use your product's agent. I want my agent to be able to use your
+product." WebMCP lets a page declare named, schema-typed functions an agent can
+call, instead of the agent scraping the DOM and simulating clicks. No browser
+ships `navigator.modelContext` yet; MachVive polyfills it.
+
+This site is itself agent-callable. Every page registers three WebMCP tools:
+`get_install_command`, `search_docs`, and `list_components`. On documentation
+pages a floating `<machvive-webmcp-inspect>` panel lets a human see and run them.
+
+## Packages
+
+- [@machfivetechchicago/machvive-webmcp-ai](https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai): The WebMCP web components. Use for install commands, current version, and any question about agent integration, `navigator.modelContext`, or tool registration.
+- [WebMCP package supplement](https://www.machvive.com/webmcp/llms.txt): Package-level llms.txt with component contracts, correct usage, and the four constraints that cause most integration failures. Use before proposing integration code.
+
+## Docs
+
+- [Documentation home](https://www.machvive.com/docs/): How WebMCP works and how the components compose. Use for orientation.
+- [Installation](https://www.machvive.com/docs/installation/): npm, buildless CDN, secure-context and SSR constraints. Use for setup questions.
+- [Quick Start](https://www.machvive.com/docs/quick-start/): Register a tool, inspect it, call it. Use for a first working example.
+- [Components](https://www.machvive.com/docs/components/): Polyfill, inspector, analytics, theming, TypeScript. Use for per-component attributes and API.
+- [Full documentation in one file](https://www.machvive.com/llms-full.txt): Every docs page inlined. Use when one fetch is preferable to several. Each docs page also serves a Markdown mirror at its URL plus `index.md`.
+
+## Source
+
+- [GitHub repository](https://github.com/Mach-Five-Group/machvive-webmcp-ai): Source, issues, releases. Use for internals or contributing.
+- [Project wiki](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki): Full guide, architecture notes, adoption constraints. Use for "why" questions.
+- [LLM Agent Reference](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki/Machvive-WebMCP-LLM-Agent-Reference): The package's agent-facing reference on the wiki, same content as the WebMCP package supplement above. Use when you want it from GitHub rather than this site.
+- [WebMCP proposal](https://webmachinelearning.github.io/webmcp/docs/proposal.html): The W3C Web Machine Learning CG spec MachVive implements. Use for questions about the standard rather than this implementation.
+
+## Optional
+
+- [About MachVive](https://www.machvive.com/about/): Who builds it and what we believe. Use for company context.
+- [Mach Five Tech](https://www.machfivetech.com/): The developer. Use for enterprise support or consulting questions.
+- [Business Accelerators](https://machfivemagnet.com/): The commercial practice this toolkit supports. Use for business context rather than implementation.
+- [Contact](https://www.machvive.com/contact/): Reach the team.
+
+---
+
+# MachVive documentation (full text)
+
+Each section below mirrors a page on https://www.machvive.com/docs/. A Markdown
+copy of every page is also served at the page URL plus `index.md`.
+
+
+---
+
+## Components
+
+Source: https://www.machvive.com/docs/components/
+Markdown: https://www.machvive.com/docs/components/index.md
+Summary: Attributes, exports and behaviour of each MachVive web component: the WebMCP polyfill, the inspector, analytics, and theming.
+
+Four custom elements ship in `@machfivetechchicago/machvive-webmcp-ai`. Each is a standards-based custom element with Shadow DOM, and each registers itself when its module is imported.
+
+## Polyfill
+
+```html
+<machvive-webmcp-polyfill></machvive-webmcp-polyfill>
+```
+
+```javascript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill';
+```
+
+Installs `navigator.modelContext` following the [W3C WebMCP proposal](https://webmachinelearning.github.io/webmcp/docs/proposal.html). It is a no-op when the browser already implements WebMCP, so your page always talks to the real implementation where one exists. Installation happens on import, not on element upgrade, so you can register tools without waiting for the tag.
+
+**Standard members**
+
+- `registerTool(tool)` adds one tool. `tool` has `name`, `description`, `inputSchema` (JSON Schema) and `execute(params, agent)`.
+- `unregisterTool(name)` removes one tool.
+- `provideContext({ tools })` replaces the whole toolset, for when app state changes which tools make sense.
+
+**Non-standard extensions.** The spec defines registration only. The polyfill adds two members so page code can bridge to an agent. Do not assume a native implementation provides them.
+
+- `navigator.modelContext.tools` returns descriptors without handlers.
+- `navigator.modelContext.callTool(name, params)` invokes a tool. It never rejects. Failures return `{ content: [...], isError: true }`.
+
+**Return values.** An `execute` handler may return `{ content: [{ type: 'text', text }] }`, a plain string, or any JSON value. Strings and values are normalised to the content shape.
+
+**Events.** `machvive-webmcp-change` fires on `window` whenever the toolset changes, with `event.detail.tools`. The constant `TOOLS_CHANGED_EVENT` is exported.
+
+**Exports:** `MachviveWebmcpPolyfill`, `installWebmcpPolyfill`, `TOOLS_CHANGED_EVENT`.
+
+## Inspector
+
+```html
+<!-- inline: renders where you place it -->
+<machvive-webmcp-inspect></machvive-webmcp-inspect>
+
+<!-- floating: docks as an overlay panel with a toggle -->
+<machvive-webmcp-inspect floating></machvive-webmcp-inspect>
+
+<!-- floating and expanded on load -->
+<machvive-webmcp-inspect floating open></machvive-webmcp-inspect>
+```
+
+```javascript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-inspect';
+```
+
+Lists every registered tool, renders a form from its `inputSchema`, and executes it with what you type. Values are coerced to the schema's types. An `integer` field sends `3`, not `"3"`. Required fields are enforced before anything runs. `object` and `array` fields accept JSON. The list refreshes as tools are registered or removed.
+
+**Attributes:** `floating`, `open`, `theme`.
+
+**Methods:** `show()` and `hide()` drive the panel from script in floating mode.
+
+## Analytics
+
+```html
+<machvive-webmcp-analytics></machvive-webmcp-analytics>
+```
+
+```javascript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics';
+```
+
+Captures every WebMCP invocation with params, result, duration and errors, then lets you list, edit, export, replay or forward them.
+
+**Import it before you register tools.** Capture works by wrapping each tool's handler at registration time. Anything registered earlier is invisible, and the component warns in the console when it detects this. Wrapping the handler rather than the caller is deliberate: it records invocations from any caller, including a native `navigator.modelContext` and real agents.
+
+Captured calls persist to IndexedDB, so a log survives reloads. The store degrades to memory-only where IndexedDB is unavailable. The default cap is 500 entries, oldest evicted first. Recording is best-effort: a failure inside the log can never change a tool's result.
+
+**Working with the log**
+
+```javascript
+import { callLog } from '@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics';
+
+await callLog.ready;            // restore from IndexedDB is async
+callLog.entries;                // captured calls, oldest first
+callLog.toJSON();               // export as JSON
+callLog.import(json);           // merge a previously exported log
+callLog.update(id, { params }); // edit before replaying
+await callLog.replay(id);                    // re-run as captured
+await callLog.replay(id, { sku: 'OTHER' });  // re-run with edited params
+```
+
+**Google Tag Manager.** Pushing to `window.dataLayer` is off unless you opt in, so importing the component never emits tracking traffic on its own.
+
+```html
+<machvive-webmcp-analytics datalayer></machvive-webmcp-analytics>
+```
+
+Each call then pushes `{ event: 'webmcp_tool_call', webmcp_tool, webmcp_status, webmcp_duration_ms, webmcp_params }`. Without the attribute, push individual entries with `callLog.pushToDataLayer(id)` or the per-entry button in the UI.
+
+**Events.** `machvive-webmcp-call` fires on `window` when the log changes, with `event.detail.reason` (`add`, `update`, `remove`, `clear`, `import`, `restore`) and `event.detail.entry`. The constant `CALL_EVENT` is exported.
+
+**Attributes:** `datalayer`, `theme`.
+
+**Exports:** `MachviveWebmcpAnalytics`, `CallLog`, `callLog`, `installAnalytics`, `CALL_EVENT`.
+
+## Lorum Ipsum
+
+```html
+<machvive-lorum-ipsum></machvive-lorum-ipsum>
+```
+
+Placeholder copy that projects slotted content. Unrelated to WebMCP. Useful for layout work while the real components are wired up.
+
+## Theming
+
+The UI components follow the viewer's OS preference automatically. Set `theme` to override:
+
+```html
+<machvive-webmcp-inspect></machvive-webmcp-inspect>               <!-- follows the OS -->
+<machvive-webmcp-analytics theme="dark"></machvive-webmcp-analytics>
+<machvive-webmcp-inspect theme="light"></machvive-webmcp-inspect>
+```
+
+`theme` is a reflected property, so `el.theme = 'dark'` and `el.theme = null` work from script.
+
+Colors are CSS custom properties on the host. Custom properties inherit through shadow boundaries, so you can restyle from your own stylesheet without `::part` or `!important`:
+
+```css
+machvive-webmcp-inspect,
+machvive-webmcp-analytics {
+  --mv-accent: #7c3aed;
+  --mv-bg: #ffffff;
+  --mv-fg: #111827;
+  --mv-border: #e5e7eb;
+}
+```
+
+| Token | Role |
+| --- | --- |
+| `--mv-fg` / `--mv-muted` / `--mv-faint` | Text: primary, secondary, hints |
+| `--mv-bg` / `--mv-surface` / `--mv-input-bg` | Panel, raised areas, form fields |
+| `--mv-border` / `--mv-border-soft` / `--mv-control-border` | Outlines, dividers, controls |
+| `--mv-hover` / `--mv-selected` | Interactive states |
+| `--mv-accent` / `--mv-accent-fg` | Primary button |
+| `--mv-ok-bg` / `--mv-ok-fg` / `--mv-err-bg` / `--mv-err-fg` | Status badges |
+| `--mv-danger` / `--mv-danger-border` | Destructive actions |
+
+Every combination of OS preference and `theme` meets WCAG AA contrast across the full UI. If you override tokens, re-check your own contrast.
+
+## TypeScript
+
+Declarations ship with the package. Importing a component augments `HTMLElementTagNameMap`, so `querySelector` returns the real element type, and the polyfill declares `navigator.modelContext` plus the change event.
+
+```typescript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill';
+import type { WebmcpToolResult } from '@machfivetechchicago/machvive-webmcp-ai';
+
+const el = document.querySelector('machvive-webmcp-inspect'); // MachviveWebmcpInspect | null
+const res: WebmcpToolResult = await navigator.modelContext.callTool('add_to_cart', { sku: 'A' });
+```
+
+Verified against `moduleResolution: "bundler"` and `"node16"` under `--strict`.
+
+## Further reading
+
+The [project wiki](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki) covers architecture notes, why WebMCP beats scripted clicking, and the constraints worth knowing before you adopt.
+
+
+---
+
+## Installation
+
+Source: https://www.machvive.com/docs/installation/
+Markdown: https://www.machvive.com/docs/installation/index.md
+Summary: Install MachVive from npm or load it buildless from a CDN, then read the two constraints that cause most integration failures.
+
+MachVive is a single npm package of vanilla web components. Install it with a package manager, or load one module script from a CDN with no build step.
+
+## npm
+
+```bash
+npm install @machfivetechchicago/machvive-webmcp-ai
+```
+
+```bash
+yarn add @machfivetechchicago/machvive-webmcp-ai
+```
+
+```bash
+pnpm add @machfivetechchicago/machvive-webmcp-ai
+```
+
+Then import what you need in your entry script. Importing a module registers its custom element. There is no init function to call.
+
+```javascript
+// Cherry-pick for smaller bundles
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill';
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-inspect';
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics';
+
+// Or register all components at once
+import '@machfivetechchicago/machvive-webmcp-ai';
+```
+
+The subpaths are `/webmcp-polyfill`, `/webmcp-inspect`, `/webmcp-analytics` and `/lorum-ipsum`.
+
+## Buildless (CDN)
+
+No bundler, no `node_modules`, no build step. Pin a version and load the module directly. This site loads the package this way.
+
+```html
+<!-- everything -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/index.js"></script>
+
+<!-- or one component -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js"></script>
+```
+
+Always pin an exact version in production.
+
+## Secure context is required
+
+`navigator.modelContext` is a `[SecureContext]` API, so the polyfill installs only on HTTPS and on `localhost`. On plain HTTP it declines with a console warning and `navigator.modelContext` stays undefined. Serve your page from a local server during development. Opening a file from disk will not work.
+
+## Server-side rendering
+
+These are browser components. Each one extends `HTMLElement` at module load, so importing the package during a server render throws:
+
+```text
+ReferenceError: HTMLElement is not defined
+```
+
+This never happens in a browser-only setup like Vite. In Next.js, Nuxt, Astro, SvelteKit or Remix, import from a client-only lifecycle hook with a dynamic import. A static top-level import will not work.
+
+```javascript
+// Next.js App Router: mark the component "use client", then import on mount
+'use client';
+import { useEffect } from 'react';
+
+export default function Page() {
+  useEffect(() => { import('@machfivetechchicago/machvive-webmcp-ai'); }, []);
+  return <machvive-webmcp-inspect floating></machvive-webmcp-inspect>;
+}
+```
+
+```javascript
+// Nuxt
+onMounted(() => import('@machfivetechchicago/machvive-webmcp-ai'));
+
+// SvelteKit
+import { onMount } from 'svelte';
+onMount(() => import('@machfivetechchicago/machvive-webmcp-ai'));
+```
+
+In Astro, put the import in a `<script>` tag rather than in the component's frontmatter.
+
+## Bundler note
+
+Never set `"sideEffects": false` for this package. Components self-register with `customElements.define()`, and tree-shaking a bare side-effect import silently drops the tag registration.
+
+## TypeScript
+
+Declarations ship with the package. No `@types/*` install is needed. Importing a component augments `HTMLElementTagNameMap`, and the polyfill declares `navigator.modelContext`.
+
+```typescript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill';
+import type { WebmcpToolResult } from '@machfivetechchicago/machvive-webmcp-ai';
+
+const res: WebmcpToolResult = await navigator.modelContext.callTool('add_to_cart', { sku: 'A' });
+```
+
+## Verification
+
+Load the polyfill, then run this in the DevTools console on an HTTPS or localhost page:
+
+```js
+console.log(typeof navigator.modelContext); // "object"
+console.log(navigator.modelContext.tools);  // [] until you register something
+```
+
+## What's next
+
+- [Quick Start](/docs/quick-start/) registers a tool and calls it.
+- [Components](/docs/components/) documents each element.
+
+## Troubleshooting
+
+**`navigator.modelContext` is undefined.**
+- The page is on plain HTTP. Use HTTPS or `localhost`.
+- The polyfill module did not load. Check the Network tab for the script.
+
+**`HTMLElement is not defined` on the server.**
+- You imported the package during SSR. Move the import into a client-only hook with `import()`.
+
+**A component tag renders nothing.**
+- Its module was never imported, or a bundler tree-shook the side-effect import. Check `sideEffects`.
+
+**Analytics shows an empty log.**
+- Tools were registered before the analytics module loaded. Import analytics first.
+
+Need more help? Open an issue on [GitHub](https://github.com/Mach-Five-Group/machvive-webmcp-ai/issues) or [reach the team](/contact/).
+
+
+---
+
+## MachVive Documentation
+
+Source: https://www.machvive.com/docs/
+Markdown: https://www.machvive.com/docs/index.md
+Summary: Make your product a tool any AI agent can call. Vanilla web components that polyfill WebMCP, inspect registered tools, and capture every call.
+
+MachVive is an open source WebMCP toolset. It ships as one npm package of vanilla web components, with zero runtime dependencies and no build step.
+
+> "I don't want to use your product's agent. I want my agent to be able to use your product."
+
+## What WebMCP is
+
+WebMCP is a W3C Web Machine Learning Community Group proposal. A page declares named, schema-typed functions on `navigator.modelContext`, and an agent calls them directly instead of scraping the DOM and simulating clicks. No browser ships it natively yet. MachVive polyfills it, and steps aside when a native implementation appears.
+
+## The components
+
+| Component | Tag | What it does |
+| --- | --- | --- |
+| Polyfill | `<machvive-webmcp-polyfill>` | Installs `navigator.modelContext` so a page can expose tools |
+| Inspector | `<machvive-webmcp-inspect>` | Lists registered tools, builds a form from each schema, runs them |
+| Analytics | `<machvive-webmcp-analytics>` | Captures every tool call for listing, editing, export, replay and dataLayer |
+| Lorum Ipsum | `<machvive-lorum-ipsum>` | Placeholder copy that projects slotted content |
+
+## How it works
+
+1. Import the polyfill. It installs `navigator.modelContext` immediately, or does nothing if the browser already has one.
+2. Register a tool with a name, a description, a JSON schema for its input, and an `execute` handler.
+3. An agent, an extension, or the inspector discovers the tool and calls it. The handler runs your real product code and returns a result.
+
+```javascript
+import '@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill';
+
+navigator.modelContext.registerTool({
+  name: 'add_to_cart',
+  description: 'Add a product to the shopping cart',
+  inputSchema: {
+    type: 'object',
+    properties: { sku: { type: 'string', description: 'Product SKU' } },
+    required: ['sku']
+  },
+  execute: async ({ sku }) => {
+    await cart.add(sku);
+    return { content: [{ type: 'text', text: `Added ${sku} to cart.` }] };
+  }
+});
+```
+
+## This site is agent-callable
+
+machvive.com runs on the package it documents. Every page registers three tools: `get_install_command`, `search_docs` and `list_components`. Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.
+
+## Where to go next
+
+1. [Installation](/docs/installation/) covers npm, the buildless CDN path, and the two constraints that trip people up.
+2. [Quick Start](/docs/quick-start/) registers a tool, inspects it, and calls it.
+3. [Components](/docs/components/) documents each element's attributes and API, theming, and TypeScript.
+
+For agents: an overview lives at [/llms.txt](/llms.txt), the full docs in one file at [/llms-full.txt](/llms-full.txt), and every docs page has a Markdown mirror at its URL plus `index.md`.
+
+## Getting help
+
+- [Project wiki](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki) for the full guide and adoption constraints
+- [GitHub issues](https://github.com/Mach-Five-Group/machvive-webmcp-ai/issues) for bugs and requests
+- [Reach the team](/contact/) for evaluations or enterprise support
+
+---
+
+*MachVive is built by [Mach Five Tech](https://www.machfivetech.com), a Mach Five Group company, and is open source under Apache 2.0.*
+
+
+---
+
+## Quick Start
+
+Source: https://www.machvive.com/docs/quick-start/
+Markdown: https://www.machvive.com/docs/quick-start/index.md
+Summary: Register your first WebMCP tool, see it in the inspector, and call it the way an agent would. About five minutes, no build step.
+
+You'll put the polyfill and the inspector on a page, register one tool, and call it two ways: from the inspector and from the console. No bundler needed.
+
+## 1. Create the page
+
+Save this as `index.html` and serve it from a local server such as `http://localhost:5500/`. WebMCP needs a secure context, so `localhost` works and a `file://` URL does not.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MachVive Quick Start</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/index.js"></script>
+</head>
+<body>
+  <h1>Quick Start</h1>
+  <p id="cart">Cart is empty.</p>
+
+  <!-- floating inspector, docked bottom-right -->
+  <machvive-webmcp-inspect floating open></machvive-webmcp-inspect>
+
+  <script type="module">
+    // The bulk import above already installed navigator.modelContext.
+    navigator.modelContext.registerTool({
+      name: 'add_to_cart',
+      description: 'Add a product to the shopping cart',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          sku: { type: 'string', description: 'Product SKU' },
+          qty: { type: 'integer', minimum: 1, description: 'Quantity (default 1)' }
+        },
+        required: ['sku']
+      },
+      execute: async ({ sku, qty = 1 }) => {
+        document.getElementById('cart').textContent = `Cart: ${qty} × ${sku}`;
+        return { content: [{ type: 'text', text: `Added ${qty} × ${sku} to cart.` }] };
+      }
+    });
+  </script>
+</body>
+</html>
+```
+
+## 2. Run it from the inspector
+
+The inspector panel lists `add_to_cart` with a form built from its schema. Type a SKU, set a quantity, and run it. The `qty` field sends an integer, not a string, because the schema says so. Required fields are enforced before anything runs.
+
+The paragraph on the page updates. The visitor and the agent see the same state.
+
+## 3. Call it from the console
+
+This is what a bridge or an agent does under the hood:
+
+```js
+navigator.modelContext.tools;
+// [{ name: 'add_to_cart', description: '...', inputSchema: {...} }]
+
+await navigator.modelContext.callTool('add_to_cart', { sku: 'M5T-001', qty: 2 });
+// { content: [{ type: 'text', text: 'Added 2 × M5T-001 to cart.' }] }
+```
+
+`callTool` never throws. A handler that rejects comes back as `{ content: [...], isError: true }`.
+
+Listen for the toolset changing:
+
+```js
+window.addEventListener('machvive-webmcp-change', (e) => console.log(e.detail.tools));
+```
+
+## 4. Capture the calls
+
+Add the analytics element and every invocation is recorded with params, result, duration and errors. The log persists to IndexedDB and survives reloads.
+
+```html
+<machvive-webmcp-analytics></machvive-webmcp-analytics>
+```
+
+The bulk import loads analytics before your tool registers, which is what you want. If you cherry-pick imports, import analytics before you register any tool, or those tools are invisible to it.
+
+To forward calls to Google Tag Manager, opt in with the `datalayer` attribute:
+
+```html
+<machvive-webmcp-analytics datalayer></machvive-webmcp-analytics>
+```
+
+## 5. Try it on this site
+
+Every page on machvive.com registers `get_install_command`, `search_docs` and `list_components`. Open the floating inspector on this page and run `search_docs` with the query `secure context`.
+
+## Where to go from here
+
+- Swap the demo for a real action in your product: a search, a quote, a booking, a status check.
+- Keep the name, description and schema honest. That text is what an agent reads to decide whether to call you.
+- Read [Components](/docs/components/) for every attribute and export.
+
+

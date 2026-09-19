@@ -47,6 +47,13 @@ html, body {
     font-size: 14px;
     font-weight: 400;
     position: relative;
+    display: block;
+    text-decoration: none;
+}
+
+.machvive-top-stripe:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 /* ==========================================================================

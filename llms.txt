@@ -1,0 +1,44 @@
+# MachVive
+
+> MachVive is an open source WebMCP toolset from Mach Five Tech. Vanilla web
+> components that make a web page callable by an AI agent: a polyfill for the W3C
+> WebMCP proposal (`navigator.modelContext`), an inspector for exercising registered
+> tools, and analytics that capture every tool call for replay and export. Zero
+> runtime dependencies, no build step, TypeScript types included. Published on npm
+> as `@machfivetechchicago/machvive-webmcp-ai` under Apache-2.0.
+
+"I don't want to use your product's agent. I want my agent to be able to use your
+product." WebMCP lets a page declare named, schema-typed functions an agent can
+call, instead of the agent scraping the DOM and simulating clicks. No browser
+ships `navigator.modelContext` yet; MachVive polyfills it.
+
+This site is itself agent-callable. Every page registers three WebMCP tools:
+`get_install_command`, `search_docs`, and `list_components`. On documentation
+pages a floating `<machvive-webmcp-inspect>` panel lets a human see and run them.
+
+## Packages
+
+- [@machfivetechchicago/machvive-webmcp-ai](https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai): The WebMCP web components. Use for install commands, current version, and any question about agent integration, `navigator.modelContext`, or tool registration.
+- [WebMCP package supplement](https://www.machvive.com/webmcp/llms.txt): Package-level llms.txt with component contracts, correct usage, and the four constraints that cause most integration failures. Use before proposing integration code.
+
+## Docs
+
+- [Documentation home](https://www.machvive.com/docs/): How WebMCP works and how the components compose. Use for orientation.
+- [Installation](https://www.machvive.com/docs/installation/): npm, buildless CDN, secure-context and SSR constraints. Use for setup questions.
+- [Quick Start](https://www.machvive.com/docs/quick-start/): Register a tool, inspect it, call it. Use for a first working example.
+- [Components](https://www.machvive.com/docs/components/): Polyfill, inspector, analytics, theming, TypeScript. Use for per-component attributes and API.
+- [Full documentation in one file](https://www.machvive.com/llms-full.txt): Every docs page inlined. Use when one fetch is preferable to several. Each docs page also serves a Markdown mirror at its URL plus `index.md`.
+
+## Source
+
+- [GitHub repository](https://github.com/Mach-Five-Group/machvive-webmcp-ai): Source, issues, releases. Use for internals or contributing.
+- [Project wiki](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki): Full guide, architecture notes, adoption constraints. Use for "why" questions.
+- [LLM Agent Reference](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki/Machvive-WebMCP-LLM-Agent-Reference): The package's agent-facing reference on the wiki, same content as the WebMCP package supplement above. Use when you want it from GitHub rather than this site.
+- [WebMCP proposal](https://webmachinelearning.github.io/webmcp/docs/proposal.html): The W3C Web Machine Learning CG spec MachVive implements. Use for questions about the standard rather than this implementation.
+
+## Optional
+
+- [About MachVive](https://www.machvive.com/about/): Who builds it and what we believe. Use for company context.
+- [Mach Five Tech](https://www.machfivetech.com/): The developer. Use for enterprise support or consulting questions.
+- [Business Accelerators](https://machfivemagnet.com/): The commercial practice this toolkit supports. Use for business context rather than implementation.
+- [Contact](https://www.machvive.com/contact/): Reach the team.

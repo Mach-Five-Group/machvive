@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.machvive.com/index.html</loc>
+    <loc>https://www.machvive.com/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://www.machvive.com/about/</loc>
+    <loc>https://www.machvive.com/docs/components/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -23,6 +23,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://www.machvive.com/docs/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.machvive.com/docs/quick-start/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

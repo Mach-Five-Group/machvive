@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MachVive Documentation | MachVive Documentation</title>
+    <title>Quick Start | MachVive Documentation</title>
     <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 
@@ -35,12 +35,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="stylesheet" href="/css/docs.css">
     
-    <meta property="og:title"       content="MachVive Documentation | MachVive Documentation">
+    <meta property="og:title"       content="Quick Start | MachVive Documentation">
     <meta property="og:site_name"   content="MachVive">
-    <meta property="og:url"         content="https://www.machvive.com/docs/">
-    <meta property="og:description" content="MachVive is an open source WebMCP toolset. It ships as one npm package of vanilla web components, with zero runtime dependencies and no build step.
-&ldquo;I don&rsquo;t want to use your product&rsquo;s agent. I want my agent to be able to use your product.&rdquo;
-What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A page declares named, schema-typed functions on navigator.modelContext, and an agent calls them directly instead of scraping the DOM and simulating clicks.">
+    <meta property="og:url"         content="https://www.machvive.com/docs/quick-start/">
+    <meta property="og:description" content="You&rsquo;ll put the polyfill and the inspector on a page, register one tool, and call it two ways: from the inspector and from the console. No bundler needed.
+1. Create the page Save this as index.html and serve it from a local server such as http://localhost:5500/. WebMCP needs a secure context, so localhost works and a file:// URL does not.
+&lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;MachVive Quick Start&lt;/title&gt; &lt;script type=&#34;module&#34; src=&#34;https://cdn.">
     <meta property="og:type"        content="website">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -123,9 +123,9 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
             <div class="docs-nav-section">
                 <h3 class="docs-nav-title">Getting Started</h3>
                 <ul class="docs-nav-list">
-                    <li><a href="/docs/" class="docs-nav-link active">Introduction</a></li>
+                    <li><a href="/docs/" class="docs-nav-link ">Introduction</a></li>
                     <li><a href="/docs/installation/" class="docs-nav-link ">Installation</a></li>
-                    <li><a href="/docs/quick-start/" class="docs-nav-link ">Quick Start</a></li>
+                    <li><a href="/docs/quick-start/" class="docs-nav-link active">Quick Start</a></li>
                     <li><a href="/docs/components/" class="docs-nav-link ">Components</a></li>
                 </ul>
             </div>
@@ -292,14 +292,29 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
                 <a href="/docs/" class="docs-breadcrumb-link">Documentation</a>
             </li>
             
+            
+            
+            
+                
+            
+                
+                    
+                    <li class="docs-breadcrumb-item">
+                        
+                            <span class="docs-breadcrumb-current">Quick start</span>
+                        
+                    </li>
+                
+            
+            
         </ol>
     </nav>
 
     
     <div class="docs-page-header">
-        <h1 class="docs-page-title">MachVive Documentation</h1>
+        <h1 class="docs-page-title">Quick Start</h1>
         
-        <p class="docs-page-description">Make your product a tool any AI agent can call. Vanilla web components that polyfill WebMCP, inspect registered tools, and capture every call.</p>
+        <p class="docs-page-description">Register your first WebMCP tool, see it in the inspector, and call it the way an agent would. About five minutes, no build step.</p>
         
     </div>
 </div>
@@ -460,82 +475,71 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
             <div class="docs-main">
                 <article class="docs-article">
                     <div class="docs-article-content">
-                        <p>MachVive is an open source WebMCP toolset. It ships as one npm package of vanilla web components, with zero runtime dependencies and no build step.</p>
-<blockquote>
-<p>&ldquo;I don&rsquo;t want to use your product&rsquo;s agent. I want my agent to be able to use your product.&rdquo;</p>
-</blockquote>
-<h2 id="what-webmcp-is">What WebMCP is</h2>
-<p>WebMCP is a W3C Web Machine Learning Community Group proposal. A page declares named, schema-typed functions on <code>navigator.modelContext</code>, and an agent calls them directly instead of scraping the DOM and simulating clicks. No browser ships it natively yet. MachVive polyfills it, and steps aside when a native implementation appears.</p>
-<h2 id="the-components">The components</h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Tag</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polyfill</td>
-<td><code>&lt;machvive-webmcp-polyfill&gt;</code></td>
-<td>Installs <code>navigator.modelContext</code> so a page can expose tools</td>
-</tr>
-<tr>
-<td>Inspector</td>
-<td><code>&lt;machvive-webmcp-inspect&gt;</code></td>
-<td>Lists registered tools, builds a form from each schema, runs them</td>
-</tr>
-<tr>
-<td>Analytics</td>
-<td><code>&lt;machvive-webmcp-analytics&gt;</code></td>
-<td>Captures every tool call for listing, editing, export, replay and dataLayer</td>
-</tr>
-<tr>
-<td>Lorum Ipsum</td>
-<td><code>&lt;machvive-lorum-ipsum&gt;</code></td>
-<td>Placeholder copy that projects slotted content</td>
-</tr>
-</tbody>
-</table>
-<h2 id="how-it-works">How it works</h2>
-<ol>
-<li>Import the polyfill. It installs <code>navigator.modelContext</code> immediately, or does nothing if the browser already has one.</li>
-<li>Register a tool with a name, a description, a JSON schema for its input, and an <code>execute</code> handler.</li>
-<li>An agent, an extension, or the inspector discovers the tool and calls it. The handler runs your real product code and returns a result.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+                        <p>You&rsquo;ll put the polyfill and the inspector on a page, register one tool, and call it two ways: from the inspector and from the console. No bundler needed.</p>
+<h2 id="1-create-the-page">1. Create the page</h2>
+<p>Save this as <code>index.html</code> and serve it from a local server such as <code>http://localhost:5500/</code>. WebMCP needs a secure context, so <code>localhost</code> works and a <code>file://</code> URL does not.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">title</span>&gt;MachVive Quick Start&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@5.7.1/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Quick Start&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cart&#34;</span>&gt;Cart is empty.&lt;/<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">registerTool</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;add_to_cart&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Add a product to the shopping cart&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Product SKU&#39;</span> } },
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;sku&#39;</span>]
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">sku</span> }) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">cart</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">sku</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text&#39;</span>, <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Added </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sku</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> to cart.`</span> }] };
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><h2 id="this-site-is-agent-callable">This site is agent-callable</h2>
-<p>machvive.com runs on the package it documents. Every page registers three tools: <code>get_install_command</code>, <code>search_docs</code> and <code>list_components</code>. Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.</p>
-<h2 id="where-to-go-next">Where to go next</h2>
-<ol>
-<li><a href="/docs/installation/">Installation</a> covers npm, the buildless CDN path, and the two constraints that trip people up.</li>
-<li><a href="/docs/quick-start/">Quick Start</a> registers a tool, inspects it, and calls it.</li>
-<li><a href="/docs/components/">Components</a> documents each element&rsquo;s attributes and API, theming, and TypeScript.</li>
-</ol>
-<p>For agents: an overview lives at <a href="/llms.txt">/llms.txt</a>, the full docs in one file at <a href="/llms-full.txt">/llms-full.txt</a>, and every docs page has a Markdown mirror at its URL plus <code>index.md</code>.</p>
-<h2 id="getting-help">Getting help</h2>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- floating inspector, docked bottom-right --&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">machvive-webmcp-inspect</span> <span style="color:#a6e22e">floating</span> <span style="color:#a6e22e">open</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The bulk import above already installed navigator.modelContext.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">registerTool</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;add_to_cart&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Add a product to the shopping cart&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">inputSchema</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Product SKU&#39;</span> },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">qty</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span>, <span style="color:#a6e22e">minimum</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Quantity (default 1)&#39;</span> }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;sku&#39;</span>]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">execute</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">sku</span>, <span style="color:#a6e22e">qty</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> }) =&gt; {
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;cart&#39;</span>).<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`Cart: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">qty</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> × </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sku</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text&#39;</span>, <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Added </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">qty</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> × </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sku</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> to cart.`</span> }] };
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h2 id="2-run-it-from-the-inspector">2. Run it from the inspector</h2>
+<p>The inspector panel lists <code>add_to_cart</code> with a form built from its schema. Type a SKU, set a quantity, and run it. The <code>qty</code> field sends an integer, not a string, because the schema says so. Required fields are enforced before anything runs.</p>
+<p>The paragraph on the page updates. The visitor and the agent see the same state.</p>
+<h2 id="3-call-it-from-the-console">3. Call it from the console</h2>
+<p>This is what a bridge or an agent does under the hood:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">tools</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [{ name: &#39;add_to_cart&#39;, description: &#39;...&#39;, inputSchema: {...} }]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">callTool</span>(<span style="color:#e6db74">&#39;add_to_cart&#39;</span>, { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;M5T-001&#39;</span>, <span style="color:#a6e22e">qty</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span> });
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// { content: [{ type: &#39;text&#39;, text: &#39;Added 2 × M5T-001 to cart.&#39; }] }
+</span></span></span></code></pre></div><p><code>callTool</code> never throws. A handler that rejects comes back as <code>{ content: [...], isError: true }</code>.</p>
+<p>Listen for the toolset changing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;machvive-webmcp-change&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">tools</span>));
+</span></span></code></pre></div><h2 id="4-capture-the-calls">4. Capture the calls</h2>
+<p>Add the analytics element and every invocation is recorded with params, result, duration and errors. The log persists to IndexedDB and survives reloads.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;
+</span></span></code></pre></div><p>The bulk import loads analytics before your tool registers, which is what you want. If you cherry-pick imports, import analytics before you register any tool, or those tools are invisible to it.</p>
+<p>To forward calls to Google Tag Manager, opt in with the <code>datalayer</code> attribute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-analytics</span> <span style="color:#a6e22e">datalayer</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;
+</span></span></code></pre></div><h2 id="5-try-it-on-this-site">5. Try it on this site</h2>
+<p>Every page on machvive.com registers <code>get_install_command</code>, <code>search_docs</code> and <code>list_components</code>. Open the floating inspector on this page and run <code>search_docs</code> with the query <code>secure context</code>.</p>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
 <ul>
-<li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki">Project wiki</a> for the full guide and adoption constraints</li>
-<li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/issues">GitHub issues</a> for bugs and requests</li>
-<li><a href="/contact/">Reach the team</a> for evaluations or enterprise support</li>
+<li>Swap the demo for a real action in your product: a search, a quote, a booking, a status check.</li>
+<li>Keep the name, description and schema honest. That text is what an agent reads to decide whether to call you.</li>
+<li>Read <a href="/docs/components/">Components</a> for every attribute and export.</li>
 </ul>
-<hr>
-<p><em>MachVive is built by <a href="https://www.machfivetech.com">Mach Five Tech</a>, a Mach Five Group company, and is open source under Apache 2.0.</em></p>
 
                     </div>
                     
@@ -551,42 +555,42 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#what-webmcp-is" class="docs-toc-link">What WebMCP is</a>
+                        <a href="#1.-create-the-page" class="docs-toc-link">1. Create the page</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#the-components" class="docs-toc-link">The components</a>
+                        <a href="#2.-run-it-from-the-inspector" class="docs-toc-link">2. Run it from the inspector</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#how-it-works" class="docs-toc-link">How it works</a>
+                        <a href="#3.-call-it-from-the-console" class="docs-toc-link">3. Call it from the console</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#this-site-is-agent-callable" class="docs-toc-link">This site is agent-callable</a>
+                        <a href="#4.-capture-the-calls" class="docs-toc-link">4. Capture the calls</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#where-to-go-next" class="docs-toc-link">Where to go next</a>
+                        <a href="#5.-try-it-on-this-site" class="docs-toc-link">5. Try it on this site</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#getting-help" class="docs-toc-link">Getting help</a>
+                        <a href="#where-to-go-from-here" class="docs-toc-link">Where to go from here</a>
                     </li>
                 
             </ul>

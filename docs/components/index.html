@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MachVive Documentation | MachVive Documentation</title>
+    <title>Components | MachVive Documentation</title>
     <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 
@@ -35,12 +35,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="stylesheet" href="/css/docs.css">
     
-    <meta property="og:title"       content="MachVive Documentation | MachVive Documentation">
+    <meta property="og:title"       content="Components | MachVive Documentation">
     <meta property="og:site_name"   content="MachVive">
-    <meta property="og:url"         content="https://www.machvive.com/docs/">
-    <meta property="og:description" content="MachVive is an open source WebMCP toolset. It ships as one npm package of vanilla web components, with zero runtime dependencies and no build step.
-&ldquo;I don&rsquo;t want to use your product&rsquo;s agent. I want my agent to be able to use your product.&rdquo;
-What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A page declares named, schema-typed functions on navigator.modelContext, and an agent calls them directly instead of scraping the DOM and simulating clicks.">
+    <meta property="og:url"         content="https://www.machvive.com/docs/components/">
+    <meta property="og:description" content="Four custom elements ship in @machfivetechchicago/machvive-webmcp-ai. Each is a standards-based custom element with Shadow DOM, and each registers itself when its module is imported.
+Polyfill &lt;machvive-webmcp-polyfill&gt;&lt;/machvive-webmcp-polyfill&gt; import &#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;; Installs navigator.modelContext following the W3C WebMCP proposal. It is a no-op when the browser already implements WebMCP, so your page always talks to the real implementation where one exists. Installation happens on import, not on element upgrade, so you can register tools without waiting for the tag.">
     <meta property="og:type"        content="website">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -123,10 +122,10 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
             <div class="docs-nav-section">
                 <h3 class="docs-nav-title">Getting Started</h3>
                 <ul class="docs-nav-list">
-                    <li><a href="/docs/" class="docs-nav-link active">Introduction</a></li>
+                    <li><a href="/docs/" class="docs-nav-link ">Introduction</a></li>
                     <li><a href="/docs/installation/" class="docs-nav-link ">Installation</a></li>
                     <li><a href="/docs/quick-start/" class="docs-nav-link ">Quick Start</a></li>
-                    <li><a href="/docs/components/" class="docs-nav-link ">Components</a></li>
+                    <li><a href="/docs/components/" class="docs-nav-link active">Components</a></li>
                 </ul>
             </div>
 
@@ -292,14 +291,29 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
                 <a href="/docs/" class="docs-breadcrumb-link">Documentation</a>
             </li>
             
+            
+            
+            
+                
+            
+                
+                    
+                    <li class="docs-breadcrumb-item">
+                        
+                            <span class="docs-breadcrumb-current">Components</span>
+                        
+                    </li>
+                
+            
+            
         </ol>
     </nav>
 
     
     <div class="docs-page-header">
-        <h1 class="docs-page-title">MachVive Documentation</h1>
+        <h1 class="docs-page-title">Components</h1>
         
-        <p class="docs-page-description">Make your product a tool any AI agent can call. Vanilla web components that polyfill WebMCP, inspect registered tools, and capture every call.</p>
+        <p class="docs-page-description">Attributes, exports and behaviour of each MachVive web component: the WebMCP polyfill, the inspector, analytics, and theming.</p>
         
     </div>
 </div>
@@ -460,82 +474,126 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
             <div class="docs-main">
                 <article class="docs-article">
                     <div class="docs-article-content">
-                        <p>MachVive is an open source WebMCP toolset. It ships as one npm package of vanilla web components, with zero runtime dependencies and no build step.</p>
-<blockquote>
-<p>&ldquo;I don&rsquo;t want to use your product&rsquo;s agent. I want my agent to be able to use your product.&rdquo;</p>
-</blockquote>
-<h2 id="what-webmcp-is">What WebMCP is</h2>
-<p>WebMCP is a W3C Web Machine Learning Community Group proposal. A page declares named, schema-typed functions on <code>navigator.modelContext</code>, and an agent calls them directly instead of scraping the DOM and simulating clicks. No browser ships it natively yet. MachVive polyfills it, and steps aside when a native implementation appears.</p>
-<h2 id="the-components">The components</h2>
-<table>
+                        <p>Four custom elements ship in <code>@machfivetechchicago/machvive-webmcp-ai</code>. Each is a standards-based custom element with Shadow DOM, and each registers itself when its module is imported.</p>
+<h2 id="polyfill">Polyfill</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-polyfill</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-polyfill</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+</span></span></code></pre></div><p>Installs <code>navigator.modelContext</code> following the <a href="https://webmachinelearning.github.io/webmcp/docs/proposal.html">W3C WebMCP proposal</a>. It is a no-op when the browser already implements WebMCP, so your page always talks to the real implementation where one exists. Installation happens on import, not on element upgrade, so you can register tools without waiting for the tag.</p>
+<p><strong>Standard members</strong></p>
+<ul>
+<li><code>registerTool(tool)</code> adds one tool. <code>tool</code> has <code>name</code>, <code>description</code>, <code>inputSchema</code> (JSON Schema) and <code>execute(params, agent)</code>.</li>
+<li><code>unregisterTool(name)</code> removes one tool.</li>
+<li><code>provideContext({ tools })</code> replaces the whole toolset, for when app state changes which tools make sense.</li>
+</ul>
+<p><strong>Non-standard extensions.</strong> The spec defines registration only. The polyfill adds two members so page code can bridge to an agent. Do not assume a native implementation provides them.</p>
+<ul>
+<li><code>navigator.modelContext.tools</code> returns descriptors without handlers.</li>
+<li><code>navigator.modelContext.callTool(name, params)</code> invokes a tool. It never rejects. Failures return <code>{ content: [...], isError: true }</code>.</li>
+</ul>
+<p><strong>Return values.</strong> An <code>execute</code> handler may return <code>{ content: [{ type: 'text', text }] }</code>, a plain string, or any JSON value. Strings and values are normalised to the content shape.</p>
+<p><strong>Events.</strong> <code>machvive-webmcp-change</code> fires on <code>window</code> whenever the toolset changes, with <code>event.detail.tools</code>. The constant <code>TOOLS_CHANGED_EVENT</code> is exported.</p>
+<p><strong>Exports:</strong> <code>MachviveWebmcpPolyfill</code>, <code>installWebmcpPolyfill</code>, <code>TOOLS_CHANGED_EVENT</code>.</p>
+<h2 id="inspector">Inspector</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- inline: renders where you place it --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- floating: docks as an overlay panel with a toggle --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-inspect</span> <span style="color:#a6e22e">floating</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- floating and expanded on load --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-inspect</span> <span style="color:#a6e22e">floating</span> <span style="color:#a6e22e">open</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-inspect&#39;</span>;
+</span></span></code></pre></div><p>Lists every registered tool, renders a form from its <code>inputSchema</code>, and executes it with what you type. Values are coerced to the schema&rsquo;s types. An <code>integer</code> field sends <code>3</code>, not <code>&quot;3&quot;</code>. Required fields are enforced before anything runs. <code>object</code> and <code>array</code> fields accept JSON. The list refreshes as tools are registered or removed.</p>
+<p><strong>Attributes:</strong> <code>floating</code>, <code>open</code>, <code>theme</code>.</p>
+<p><strong>Methods:</strong> <code>show()</code> and <code>hide()</code> drive the panel from script in floating mode.</p>
+<h2 id="analytics">Analytics</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics&#39;</span>;
+</span></span></code></pre></div><p>Captures every WebMCP invocation with params, result, duration and errors, then lets you list, edit, export, replay or forward them.</p>
+<p><strong>Import it before you register tools.</strong> Capture works by wrapping each tool&rsquo;s handler at registration time. Anything registered earlier is invisible, and the component warns in the console when it detects this. Wrapping the handler rather than the caller is deliberate: it records invocations from any caller, including a native <code>navigator.modelContext</code> and real agents.</p>
+<p>Captured calls persist to IndexedDB, so a log survives reloads. The store degrades to memory-only where IndexedDB is unavailable. The default cap is 500 entries, oldest evicted first. Recording is best-effort: a failure inside the log can never change a tool&rsquo;s result.</p>
+<p><strong>Working with the log</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">callLog</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-analytics&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">ready</span>;            <span style="color:#75715e">// restore from IndexedDB is async
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">entries</span>;                <span style="color:#75715e">// captured calls, oldest first
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">toJSON</span>();               <span style="color:#75715e">// export as JSON
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">callLog</span>.<span style="color:#66d9ef">import</span>(<span style="color:#a6e22e">json</span>);           <span style="color:#75715e">// merge a previously exported log
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">id</span>, { <span style="color:#a6e22e">params</span> }); <span style="color:#75715e">// edit before replaying
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">replay</span>(<span style="color:#a6e22e">id</span>);                    <span style="color:#75715e">// re-run as captured
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">callLog</span>.<span style="color:#a6e22e">replay</span>(<span style="color:#a6e22e">id</span>, { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OTHER&#39;</span> });  <span style="color:#75715e">// re-run with edited params
+</span></span></span></code></pre></div><p><strong>Google Tag Manager.</strong> Pushing to <code>window.dataLayer</code> is off unless you opt in, so importing the component never emits tracking traffic on its own.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-analytics</span> <span style="color:#a6e22e">datalayer</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;
+</span></span></code></pre></div><p>Each call then pushes <code>{ event: 'webmcp_tool_call', webmcp_tool, webmcp_status, webmcp_duration_ms, webmcp_params }</code>. Without the attribute, push individual entries with <code>callLog.pushToDataLayer(id)</code> or the per-entry button in the UI.</p>
+<p><strong>Events.</strong> <code>machvive-webmcp-call</code> fires on <code>window</code> when the log changes, with <code>event.detail.reason</code> (<code>add</code>, <code>update</code>, <code>remove</code>, <code>clear</code>, <code>import</code>, <code>restore</code>) and <code>event.detail.entry</code>. The constant <code>CALL_EVENT</code> is exported.</p>
+<p><strong>Attributes:</strong> <code>datalayer</code>, <code>theme</code>.</p>
+<p><strong>Exports:</strong> <code>MachviveWebmcpAnalytics</code>, <code>CallLog</code>, <code>callLog</code>, <code>installAnalytics</code>, <code>CALL_EVENT</code>.</p>
+<h2 id="lorum-ipsum">Lorum Ipsum</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-lorum-ipsum</span>&gt;&lt;/<span style="color:#f92672">machvive-lorum-ipsum</span>&gt;
+</span></span></code></pre></div><p>Placeholder copy that projects slotted content. Unrelated to WebMCP. Useful for layout work while the real components are wired up.</p>
+<h2 id="theming">Theming</h2>
+<p>The UI components follow the viewer&rsquo;s OS preference automatically. Set <code>theme</code> to override:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;               <span style="color:#75715e">&lt;!-- follows the OS --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-analytics</span> <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dark&#34;</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-analytics</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">machvive-webmcp-inspect</span> <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;light&#34;</span>&gt;&lt;/<span style="color:#f92672">machvive-webmcp-inspect</span>&gt;
+</span></span></code></pre></div><p><code>theme</code> is a reflected property, so <code>el.theme = 'dark'</code> and <code>el.theme = null</code> work from script.</p>
+<p>Colors are CSS custom properties on the host. Custom properties inherit through shadow boundaries, so you can restyle from your own stylesheet without <code>::part</code> or <code>!important</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">machvive-webmcp-inspect</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">machvive-webmcp-analytics</span> {
+</span></span><span style="display:flex;"><span>  --mv-accent: <span style="color:#ae81ff">#7c3aed</span>;
+</span></span><span style="display:flex;"><span>  --mv-bg: <span style="color:#ae81ff">#ffffff</span>;
+</span></span><span style="display:flex;"><span>  --mv-fg: <span style="color:#ae81ff">#111827</span>;
+</span></span><span style="display:flex;"><span>  --mv-border: <span style="color:#ae81ff">#e5e7eb</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Tag</th>
-<th>What it does</th>
+<th>Token</th>
+<th>Role</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Polyfill</td>
-<td><code>&lt;machvive-webmcp-polyfill&gt;</code></td>
-<td>Installs <code>navigator.modelContext</code> so a page can expose tools</td>
+<td><code>--mv-fg</code> / <code>--mv-muted</code> / <code>--mv-faint</code></td>
+<td>Text: primary, secondary, hints</td>
 </tr>
 <tr>
-<td>Inspector</td>
-<td><code>&lt;machvive-webmcp-inspect&gt;</code></td>
-<td>Lists registered tools, builds a form from each schema, runs them</td>
+<td><code>--mv-bg</code> / <code>--mv-surface</code> / <code>--mv-input-bg</code></td>
+<td>Panel, raised areas, form fields</td>
 </tr>
 <tr>
-<td>Analytics</td>
-<td><code>&lt;machvive-webmcp-analytics&gt;</code></td>
-<td>Captures every tool call for listing, editing, export, replay and dataLayer</td>
+<td><code>--mv-border</code> / <code>--mv-border-soft</code> / <code>--mv-control-border</code></td>
+<td>Outlines, dividers, controls</td>
 </tr>
 <tr>
-<td>Lorum Ipsum</td>
-<td><code>&lt;machvive-lorum-ipsum&gt;</code></td>
-<td>Placeholder copy that projects slotted content</td>
+<td><code>--mv-hover</code> / <code>--mv-selected</code></td>
+<td>Interactive states</td>
+</tr>
+<tr>
+<td><code>--mv-accent</code> / <code>--mv-accent-fg</code></td>
+<td>Primary button</td>
+</tr>
+<tr>
+<td><code>--mv-ok-bg</code> / <code>--mv-ok-fg</code> / <code>--mv-err-bg</code> / <code>--mv-err-fg</code></td>
+<td>Status badges</td>
+</tr>
+<tr>
+<td><code>--mv-danger</code> / <code>--mv-danger-border</code></td>
+<td>Destructive actions</td>
 </tr>
 </tbody>
 </table>
-<h2 id="how-it-works">How it works</h2>
-<ol>
-<li>Import the polyfill. It installs <code>navigator.modelContext</code> immediately, or does nothing if the browser already has one.</li>
-<li>Register a tool with a name, a description, a JSON schema for its input, and an <code>execute</code> handler.</li>
-<li>An agent, an extension, or the inspector discovers the tool and calls it. The handler runs your real product code and returns a result.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+<p>Every combination of OS preference and <code>theme</code> meets WCAG AA contrast across the full UI. If you override tokens, re-check your own contrast.</p>
+<h2 id="typescript">TypeScript</h2>
+<p>Declarations ship with the package. Importing a component augments <code>HTMLElementTagNameMap</code>, so <code>querySelector</code> returns the real element type, and the polyfill declares <code>navigator.modelContext</code> plus the change event.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai/webmcp-polyfill&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#66d9ef">type</span> { <span style="color:#a6e22e">WebmcpToolResult</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@machfivetechchicago/machvive-webmcp-ai&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">registerTool</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;add_to_cart&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Add a product to the shopping cart&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Product SKU&#39;</span> } },
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;sku&#39;</span>]
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">sku</span> }) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">cart</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">sku</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text&#39;</span>, <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Added </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sku</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> to cart.`</span> }] };
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><h2 id="this-site-is-agent-callable">This site is agent-callable</h2>
-<p>machvive.com runs on the package it documents. Every page registers three tools: <code>get_install_command</code>, <code>search_docs</code> and <code>list_components</code>. Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.</p>
-<h2 id="where-to-go-next">Where to go next</h2>
-<ol>
-<li><a href="/docs/installation/">Installation</a> covers npm, the buildless CDN path, and the two constraints that trip people up.</li>
-<li><a href="/docs/quick-start/">Quick Start</a> registers a tool, inspects it, and calls it.</li>
-<li><a href="/docs/components/">Components</a> documents each element&rsquo;s attributes and API, theming, and TypeScript.</li>
-</ol>
-<p>For agents: an overview lives at <a href="/llms.txt">/llms.txt</a>, the full docs in one file at <a href="/llms-full.txt">/llms-full.txt</a>, and every docs page has a Markdown mirror at its URL plus <code>index.md</code>.</p>
-<h2 id="getting-help">Getting help</h2>
-<ul>
-<li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki">Project wiki</a> for the full guide and adoption constraints</li>
-<li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/issues">GitHub issues</a> for bugs and requests</li>
-<li><a href="/contact/">Reach the team</a> for evaluations or enterprise support</li>
-</ul>
-<hr>
-<p><em>MachVive is built by <a href="https://www.machfivetech.com">Mach Five Tech</a>, a Mach Five Group company, and is open source under Apache 2.0.</em></p>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;machvive-webmcp-inspect&#39;</span>); <span style="color:#75715e">// MachviveWebmcpInspect | null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span>: <span style="color:#66d9ef">WebmcpToolResult</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">modelContext</span>.<span style="color:#a6e22e">callTool</span>(<span style="color:#e6db74">&#39;add_to_cart&#39;</span>, { <span style="color:#a6e22e">sku</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;A&#39;</span> });
+</span></span></code></pre></div><p>Verified against <code>moduleResolution: &quot;bundler&quot;</code> and <code>&quot;node16&quot;</code> under <code>--strict</code>.</p>
+<h2 id="further-reading">Further reading</h2>
+<p>The <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki">project wiki</a> covers architecture notes, why WebMCP beats scripted clicking, and the constraints worth knowing before you adopt.</p>
 
                     </div>
                     
@@ -551,42 +609,49 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#what-webmcp-is" class="docs-toc-link">What WebMCP is</a>
+                        <a href="#polyfill" class="docs-toc-link">Polyfill</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#the-components" class="docs-toc-link">The components</a>
+                        <a href="#inspector" class="docs-toc-link">Inspector</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#how-it-works" class="docs-toc-link">How it works</a>
+                        <a href="#analytics" class="docs-toc-link">Analytics</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#this-site-is-agent-callable" class="docs-toc-link">This site is agent-callable</a>
+                        <a href="#lorum-ipsum" class="docs-toc-link">Lorum Ipsum</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#where-to-go-next" class="docs-toc-link">Where to go next</a>
+                        <a href="#theming" class="docs-toc-link">Theming</a>
                     </li>
                 
                     
                     
                     
                     <li class="docs-toc-item docs-toc-level-2">
-                        <a href="#getting-help" class="docs-toc-link">Getting help</a>
+                        <a href="#typescript" class="docs-toc-link">TypeScript</a>
+                    </li>
+                
+                    
+                    
+                    
+                    <li class="docs-toc-item docs-toc-level-2">
+                        <a href="#further-reading" class="docs-toc-link">Further reading</a>
                     </li>
                 
             </ul>

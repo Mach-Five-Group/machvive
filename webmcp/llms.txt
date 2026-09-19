@@ -1,0 +1,54 @@
+# machvive-webmcp-ai
+
+> Vanilla Web Components that make a web page callable by an AI agent. Provides a
+> polyfill for the W3C WebMCP proposal (`navigator.modelContext`), an inspector for
+> exercising registered tools, and analytics that capture every tool invocation for
+> replay and export. Zero runtime dependencies, no build step, TypeScript types
+> included. Published as `@machfivetechchicago/machvive-webmcp-ai` (Apache-2.0).
+
+WebMCP lets a page declare named, schema-typed functions an agent can call, instead
+of the agent scraping the DOM and simulating clicks. No browser ships
+`navigator.modelContext` yet; this package polyfills it.
+
+## Start here
+
+- [Project wiki](https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki/Machvive-WebMCP-Polyfill-Web-Component-Lib): Full guide — what WebMCP is, how the four components compose, and adoption constraints. Use for any question about what this package is or why it exists.
+- [README](https://github.com/Mach-Five-Group/machvive-webmcp-ai#readme): Install, imports, per-component usage, theming, TypeScript. Use for copy-pasteable integration snippets.
+- [npm package](https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai): Published versions and metadata. Use to check the current version.
+- [WebMCP proposal](https://webmachinelearning.github.io/webmcp/docs/proposal.html): The W3C Web Machine Learning CG spec this implements. Use for questions about the standard itself rather than this implementation.
+
+## Components
+
+- `<machvive-webmcp-polyfill>` — installs `navigator.modelContext` with `registerTool`, `unregisterTool`, and `provideContext`. Use when a page needs to expose tools to agents.
+- `<machvive-webmcp-inspect>` — lists registered tools, generates a form from each `inputSchema`, executes them. Inline by default; `floating` docks it as an overlay. Use for manually testing tools during development.
+- `<machvive-webmcp-analytics>` — captures every invocation (params, result, duration, errors) with list, edit, export, replay, and opt-in `dataLayer` push. Persists to IndexedDB. Use for observing and reproducing agent behaviour.
+- `<machvive-lorum-ipsum>` — placeholder copy that projects slotted content. Unrelated to WebMCP.
+
+## Correct usage
+
+- Install: `npm install @machfivetechchicago/machvive-webmcp-ai`
+- Subpath imports: `/webmcp-polyfill`, `/webmcp-inspect`, `/webmcp-analytics`, `/lorum-ipsum`. The bare package specifier imports all four.
+- Importing a module registers its custom element automatically. There is no init function to call.
+- Register a tool with `name`, `description`, `inputSchema` (JSON Schema), and an `execute(params, agent)` handler returning `{ content: [{ type: 'text', text }] }`.
+
+## Constraints an agent must respect
+
+These four cause most integration failures. Check them before proposing code.
+
+- **Import analytics before registering any tools.** Capture works by wrapping each tool's `execute` at registration time, so tools registered earlier are never captured. This is the most common cause of an empty log.
+- **Secure context is required.** The polyfill installs on HTTPS and `localhost` only, matching the native API's `[SecureContext]`. It declines elsewhere with a console warning; `navigator.modelContext` will be undefined on plain HTTP.
+- **Browser-only — these throw under SSR.** Every component extends `HTMLElement` at module load, so importing any entry point during a server render throws `ReferenceError: HTMLElement is not defined`. In Next.js, Nuxt, Astro, SvelteKit, or Remix, use a dynamic `import()` inside a client-only lifecycle hook. A static top-level import will not work.
+- **Never set `"sideEffects": false`** when bundling this package. Components self-register via `customElements.define()`, and tree-shaking a bare side-effect import silently drops the tag registration.
+
+## Non-standard extensions
+
+The WebMCP spec defines registration only. This package adds two members so page
+code can bridge to an agent; do not assume a native implementation provides them.
+
+- `navigator.modelContext.tools` — descriptors an agent would discover, without handlers.
+- `navigator.modelContext.callTool(name, params)` — invokes a registered tool. Never rejects; failures return `{ content: [...], isError: true }`.
+
+## Optional
+
+- [Business Accelerators](https://machfivemagnet.com/): The commercial practice this toolkit supports — conversion-optimized landing pages with automated onboarding, exposed to agents as callable functionality. Use for questions about business context rather than implementation.
+- [GitHub repository](https://github.com/Mach-Five-Group/machvive-webmcp-ai): Source, issues, releases. Use for questions about internals or contributing.

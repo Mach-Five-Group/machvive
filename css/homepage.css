@@ -118,6 +118,21 @@
     text-align: center;
 }
 
+.machvive-hero-title {
+    color: #fafafa;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 0 0 18px 0;
+}
+
+.feature-card code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.92em;
+    color: #4fc3f7;
+}
+
 .machvive-features-text {
     color: #fafafa;
     font-size: 16px;
@@ -233,9 +248,51 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* "soon" pill inside the install box while the package is unpublished.
+   Remove by setting npmStatus = "live" in config.toml; no CSS change needed. */
+.npm-status {
+    margin-left: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid #00a86b;
+    color: #00a86b;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    cursor: help;
+}
+
+.npm-install-box.is-coming-soon {
+    padding-right: 44px;
+}
+
+.machvive-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
 .machvive-get-started {
     margin-top: 20px;
     color: white;
+}
+
+.machvive-repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #bbb;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.machvive-repo-link:hover {
+    color: #fff;
 }
 
 /* Features section */
@@ -473,7 +530,7 @@
     flex-shrink: 0;
 }
 
-.feature-card h3 {
+.feature-card h2 {
     margin: 0;
     font-size: 24px;
     color: #fff;
@@ -492,7 +549,7 @@
 }
 
 @media (hover: hover) {
-    .feature-card:hover h3 {
+    .feature-card:hover h2 {
         background: linear-gradient(135deg, #DD4124 0%, #ff6b4a 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -506,80 +563,6 @@
     line-height: 1.6;
     font-size: 14px;
     margin: 0;
-}
-
-/* Reach the team section */
-.machvive-connect {
-    padding: 60px 20px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-top: 2px solid #DD4124;
-    position: relative;
-}
-
-/* Grid background pattern for connect section */
-.machvive-connect::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Subtle spotlight effect */
-.machvive-connect::before {
-    content: '';
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 500px;
-    background: radial-gradient(ellipse at center,
-        rgba(255, 255, 255, 0.10) 0%,
-        rgba(255, 255, 255, 0.06) 35%,
-        rgba(255, 255, 255, 0.03) 55%,
-        transparent 80%
-    );
-    pointer-events: none;
-    z-index: 1;
-}
-
-.connect-wrapper {
-    position: relative;
-    z-index: 5;
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.connect-heading {
-    margin: 0 0 15px 0;
-    font-size: 32px;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.connect-copy {
-    color: #888;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.6;
-    margin: 0 0 35px 0;
 }
 
 /* Responsive */
@@ -630,19 +613,6 @@
         max-width: 90%;
         line-height: 1.4;
         margin: 25px auto 0;
-    }
-
-    .machvive-connect {
-        padding: 40px 15px 60px;
-    }
-
-    .connect-heading {
-        font-size: 24px;
-    }
-
-    .connect-copy {
-        font-size: 16px;
-        margin-bottom: 25px;
     }
 }
 
