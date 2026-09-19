@@ -23,7 +23,7 @@ It ships as one npm package of vanilla web components with zero runtime dependen
 
 ## Who builds it
 
-MachVive is built by Mach Five Tech in Chicago, a Mach Five Group company. The npm scope is `@machfivetechchicago` because the shorter name was already taken.
+MachVive is built by Mach Five Tech in Chicago, a Mach Five Group company.
 
 ## More from Mach Five
 
