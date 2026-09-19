@@ -276,9 +276,16 @@
     cursor: help;
 }
 
+/* One line at every viewport. The quote measures 43em wide in this font, so
+   the size is the full-bleed width divided by 43, capped at 22px on desktop. */
 .machvive-quote {
+    display: block;
     color: #DD4124;
     font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.4;
+    margin: 0 -20px 8px;
+    font-size: clamp(7px, calc(2.1vw - 1px), 22px);
 }
 
 .machvive-cta-row {
