@@ -13,6 +13,10 @@
  * script tag, so there is exactly one place to bump the version.
  *
  * Tool calls are forwarded to window.dataLayer (GTM) as `webmcp_tool_call`.
+ *
+ * Where a Mach Five Magnet is on the page, its lead-capture flow is bridged too,
+ * so an agent can discover what the enquiry form asks and fill it in for the
+ * visitor to confirm.
  */
 const me = document.currentScript || document.querySelector('script[data-webmcp-cdn]');
 const CDN = me?.dataset.webmcpCdn;
@@ -37,7 +41,33 @@ async function boot() {
     if (e.detail?.reason === 'add' && e.detail.entry) callLog.pushToDataLayer(e.detail.entry.id);
   });
 
-  navigator.modelContext.provideContext({ tools: siteTools() });
+  // registerTool, not provideContext: provideContext replaces the entire
+  // toolset, so whichever of this module and the magnet bridge finished last
+  // would erase the other's tools.
+  for (const tool of siteTools()) navigator.modelContext.registerTool(tool);
+
+  await bridgeMagnet();
+}
+
+/**
+ * Bridges a Mach Five Magnet, when the page carries one.
+ *
+ * The magnet snippet is already in the markup (see layouts/partials/scripts.html
+ * and content/contact.md), so the element needs no app-guid or src — it detects
+ * the loaded runtime and derives its tools from that magnet's own configuration.
+ */
+async function bridgeMagnet() {
+  if (!document.querySelector('script[src*="coreSnippet"]')) return;
+  try {
+    await import(`${CDN}/src/wc/machvive-m5t-magnet/machvive-m5t-magnet.js`);
+    if (!document.querySelector('machvive-m5t-magnet')) {
+      document.body.append(document.createElement('machvive-m5t-magnet'));
+    }
+  } catch (err) {
+    // The site's own tools are already registered; a magnet failure must not
+    // take them down with it.
+    console.warn('WebMCP magnet bridge failed to start:', err);
+  }
 }
 
 const COMPONENTS = [
