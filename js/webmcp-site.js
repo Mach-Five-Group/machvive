@@ -30,11 +30,13 @@ if (!CDN) {
 }
 
 async function boot() {
-  await import(`${CDN}/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js`);
-  if (!navigator.modelContext) return; // plain-HTTP or unsupported context; polyfill declined
-
-  const analytics = await import(`${CDN}/src/wc/machvive-webmcp-analytics/machvive-webmcp-analytics.js`);
-  const { callLog, CALL_EVENT } = analytics;
+  // One import, not two: the analytics module imports the polyfill itself, so
+  // loading it separately first only added a round trip before any tool could
+  // register. The modulepreload hints in head.html fetch the graph in parallel.
+  const { callLog, CALL_EVENT } = await import(
+    `${CDN}/src/wc/machvive-webmcp-analytics/machvive-webmcp-analytics.js`
+  );
+  if (!navigator.modelContext) return; // non-secure context; the polyfill declined
 
   // Forward each captured call to GTM without mounting the analytics UI.
   window.addEventListener(CALL_EVENT, (e) => {
