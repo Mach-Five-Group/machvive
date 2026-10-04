@@ -22,6 +22,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://www.machvive.com/chat-syncopation/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://www.machvive.com/docs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

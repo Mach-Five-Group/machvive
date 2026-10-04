@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Machvive Chat Syncopation | MachVive</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
+
+
+<link rel="preconnect" href="https://arcanus55.github.io/" crossorigin>
+<link rel="preconnect" href="https://neodigm.github.io/" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/machvive-webmcp-analytics/machvive-webmcp-analytics.js" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/shared/theme.js" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://unpkg.com/">
+
+
+<link rel="stylesheet" href="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.css">
+<link rel="stylesheet" href="https://arcanus55.github.io/neodigm55/dist/neodigm55_v1_0_launchComplete.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link href="https://www.machvive.com/site.webmanifest" rel="manifest">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+<meta name="author" content="Mach Five Tech">
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TDNPRQRS');</script>
+
+    <link rel="stylesheet" href="/css/chat-syncopation.css">
+
+    <meta property="og:title"       content="Machvive Chat Syncopation | MachVive">
+    <meta property="og:site_name"   content="MachVive">
+    <meta property="og:url"         content="https://www.machvive.com/chat-syncopation/">
+    <meta property="og:description" content="Dependency-free web components for building chat interfaces — engagement, low cognitive load, modern web experiences, and user agency over their own conversation data.">
+    <meta property="og:type"        content="website">
+</head>
+
+<body class="cs-theme">
+    
+<a class="machvive-top-stripe" href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 8px; vertical-align: middle;" aria-hidden="true">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="white"/>
+    </svg>
+    MachVive is open source under Apache 2.0. Star it, fork it, ship it.
+</a>
+
+
+    <header class="l-main__header">
+        <nav class="main-nav">
+    <div class="nav-container">
+        
+        <div class="nav-brand">
+            <a href="/" class="brand-link">
+                <img src="/img/MachVive Library.png" alt="MachVive" class="nav-logo">
+            </a>
+        </div>
+        
+        
+        <div class="nav-links desktop-nav">
+            <a href="/about" class="nav-link">About</a>
+            <a href="/docs/" class="nav-link">Documentation</a>
+            <a href="/chat-syncopation/" class="nav-link">Chat Syncopation</a>
+            <a href="/contact/" class="nav-link">Contact</a>
+            <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener" class="nav-link github-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+        
+        
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+    
+    
+    <div class="mobile-nav-drawer">
+        <div class="mobile-nav-content">
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/docs/" class="mobile-nav-link">Documentation</a>
+            <a href="/chat-syncopation/" class="mobile-nav-link">Chat Syncopation</a>
+            <a href="/contact/" class="mobile-nav-link">Contact</a>
+            <a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener" class="mobile-nav-link github-mobile">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </div>
+</nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-eyebrow">Open source · Apache&nbsp;2.0</p>
+            <h1>Machvive Chat&nbsp;Syncopation</h1>
+            <p class="cs-lede">
+                A chat interface is a UI problem before it is a model problem.
+                Dependency-free web components for prototyping complex chat
+                interactions &mdash; with an emphasis on user engagement, prompt
+                cognitive load, modern web experiences, and user data domain agency.
+            </p>
+
+            <div class="cs-badges">
+                <span class="cs-badge">Zero dependencies</span>
+                <span class="cs-badge">No build step</span>
+                <span class="cs-badge">Any AI stack</span>
+                <span class="cs-badge">Works offline</span>
+            </div>
+
+            <div class="cs-installs">
+                <div class="cs-install">
+                    <p class="cs-install__label">Install the package</p>
+                    <div class="cs-install__box" data-copy="npm i -S @machfivetechchicago/machvive-chat-syncopation-ai">
+                        <span class="cs-install__prefix">$</span>
+                        <code class="cs-install__text">npm i -S @machfivetechchicago/machvive-chat-syncopation-ai</code>
+                        
+                        <span class="cs-install__soon" title="The package is being published.">soon</span>
+                        
+                        <button class="cs-copy" type="button" aria-label="Copy install command">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-install">
+                    <p class="cs-install__label">Install the Claude Code skill</p>
+                    <div class="cs-install__box" data-copy="/plugin marketplace add Mach-Five-Group/machvive-chat-syncopation-ai">
+                        <span class="cs-install__prefix">&rsaquo;</span>
+                        <code class="cs-install__text">/plugin marketplace add Mach-Five-Group/machvive-chat-syncopation-ai</code>
+                        <button class="cs-copy" type="button" aria-label="Copy marketplace command">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="cs-install__box" data-copy="/plugin install machvive-chat-syncopation@machvive-chat-syncopation">
+                        <span class="cs-install__prefix">&rsaquo;</span>
+                        <code class="cs-install__text">/plugin install machvive-chat-syncopation@machvive-chat-syncopation</code>
+                        <button class="cs-copy" type="button" aria-label="Copy install command">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="cs-install__note">
+                        Teaches Claude Code the components, the wiring, and the
+                        constraints &mdash; so it writes against the real API instead
+                        of guessing one.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cs-cta-row">
+                <a class="cs-cta cs-cta--primary" href="https://mach-five-group.github.io/chat-syncopation-playground/" target="_blank" rel="noopener">Try the playground</a>
+                <a class="cs-cta" href="https://github.com/Mach-Five-Group/machvive-chat-syncopation-ai/wiki" target="_blank" rel="noopener">Read the wiki</a>
+                <a class="cs-cta" href="https://github.com/Mach-Five-Group/machvive-chat-syncopation-ai" target="_blank" rel="noopener">Source</a>
+                <a class="cs-cta" href="https://www.npmjs.com/package/@machfivetechchicago/machvive-chat-syncopation-ai" target="_blank" rel="noopener">npm</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The smallest thing that works</h2>
+            <p>
+                One tag. It creates its own services element and defaults to a
+                transport that echoes you back &mdash; so the entire surface is
+                finishable before a model exists.
+            </p>
+<pre class="cs-code"><code>&lt;machvive-chat-syncopation&gt;
+  &lt;machvive-chat-syncopation-canvas&gt;&lt;/machvive-chat-syncopation-canvas&gt;
+  &lt;machvive-chat-syncopation-prompt slot="footer"&gt;&lt;/machvive-chat-syncopation-prompt&gt;
+&lt;/machvive-chat-syncopation&gt;</code></pre>
+        </section>
+
+        <section class="cs-section">
+            <h2>Nine components</h2>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>-services</code></td><td>Headless. The bus, conversation, daemon and cache every surface shares</td></tr>
+                        <tr><td><code>machvive-chat-syncopation</code></td><td>The container. Layout only; everything inside is slotted</td></tr>
+                        <tr><td><code>-canvas</code></td><td>The transcript &mdash; append-only, streaming, reader-respecting autoscroll</td></tr>
+                        <tr><td><code>-prompt</code></td><td>The composer. Enter sends, Shift+Enter newlines, Stop interrupts</td></tr>
+                        <tr><td><code>-nudge</code></td><td>Suggested openings and a once-only idle prompt</td></tr>
+                        <tr><td><code>-cli</code></td><td>Keyboard-first surface with extensible slash commands</td></tr>
+                        <tr><td><code>-voice</code></td><td>Push-to-talk dictation and read-aloud, capability-gated</td></tr>
+                        <tr><td><code>-inspector</code></td><td>Live bus traffic, for whoever is building the surface</td></tr>
+                        <tr><td><code>-history</code></td><td>Stored conversations, with export and real deletion</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>Where a chat system can run</h2>
+            <p>
+                Nothing here calls a model. Transports are a uniform interface you
+                fill in &mdash; and the one that matters is a model running inside
+                the user agent, via WebLLM or similar.
+            </p>
+            <p>
+                A model in the browser has <strong>no per-token cost</strong>. That
+                changes the arithmetic for every case usually ruled out as
+                uneconomic: long-tail support, kiosks, classrooms, internal tools, a
+                field application with no connection at all. Because no component
+                knows where its text came from, offline-first is a configuration
+                rather than a rewrite.
+            </p>
+        </section>
+
+        <section class="cs-section">
+            <h2>Four commitments</h2>
+            <div class="cs-grid">
+                <div class="cs-card">
+                    <h3>User engagement</h3>
+                    <p>
+                        An empty prompt box is the highest-friction moment in any chat
+                        interface. Suggested openings remove it &mdash; and fill the
+                        composer rather than sending, so the user stays the author.
+                    </p>
+                </div>
+                <div class="cs-card">
+                    <h3>Prompt cognitive load</h3>
+                    <p>
+                        A conversation is a reading surface. Turns stream into one
+                        node instead of re-rendering the list, autoscroll follows the
+                        bottom only while you are already there, and Send becomes
+                        Stop rather than going disabled.
+                    </p>
+                </div>
+                <div class="cs-card">
+                    <h3>Modern web experiences</h3>
+                    <p>
+                        Shadow DOM, custom properties that cross the shadow boundary,
+                        <code>prefers-color-scheme</code>,
+                        <code>prefers-reduced-motion</code>, and the Speech APIs where
+                        they exist &mdash; with an honest explanation where they do not.
+                    </p>
+                </div>
+                <div class="cs-card">
+                    <h3>User data domain agency</h3>
+                    <p>
+                        The conversation lives in the user's browser. Persistence is
+                        off until a page turns it on, and the history component lets
+                        the person whose words these are see them, export them, and
+                        delete them for real.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cs-section cs-section--quiet">
+            <h2>Also from MachVive</h2>
+            <p>
+                <a href="/docs/">MachVive WebMCP</a> is the sibling package: where
+                Chat Syncopation is the interface a person talks through, WebMCP is
+                how an agent reaches your product without one. They compose well, and
+                neither depends on the other.
+            </p>
+        </section>
+    </main>
+
+    <footer class="l-main__footer">
+    <div class="footer-content">
+        <div class="footer-grid">
+            
+            <div class="footer-section footer-widget-section">
+                <neodigm-widget 
+                    data-n55-widget-id="effect_two_word_rotate"
+                    data-n55-theme="primary"
+                ></neodigm-widget>
+                <p class="footer-description">
+                    <span data-n55-enchanted-text data-n55-speed="3000">
+                        <span>Built by Mach Five Tech, MachVive is an open source WebMCP toolset.</span>
+                        <span>Your product, as a tool any agent can call.</span>
+                        <span>Zero dependencies. No build step. Apache 2.0.</span>
+                    </span>
+                </p>
+            </div>
+            
+            
+            <div class="footer-section">
+                <h4 class="footer-heading">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="/docs/">Documentation</a></li>
+                    <li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai" target="_blank" rel="noopener">npm</a></li>
+                    <li><a href="https://github.com/Mach-Five-Group/machvive-webmcp-ai/wiki" target="_blank" rel="noopener">Wiki</a></li>
+                    <li><a href="/llms.txt">llms.txt</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            
+            
+            <div class="footer-section">
+                <h4 class="footer-heading">Mach Five Group</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.machfivegroup.com" target="_blank">Mach Five Group</a></li>
+                    <li><a href="https://www.machfivemarketing.com" target="_blank">Mach Five Marketing</a></li>
+                    <li><a href="https://www.machfivetech.com" target="_blank">Mach Five Tech</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="footer-bottom">
+            <p>© 2026 MachVive</p>
+            <p>Built by <a href="https://www.machfivetech.com" target="_blank">Mach Five Tech</a>, a <a href="https://www.machfivegroup.com" target="_blank">Mach Five Group</a> company</p>
+        </div>
+    </div>
+</footer>
+    
+<script src="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.js"></script>
+<script src="https://arcanus55.github.io/neodigm55/dist/neodigm55_v1_0_launchComplete.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script type="module" src="/js/webmcp-site.js"
+        data-webmcp-cdn="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0"
+        data-webmcp-package="@machfivetechchicago/machvive-webmcp-ai"
+        data-webmcp-index="/index.json"></script>
+
+<script src="https://machfivemagnet-saas.onrender.com/m5t/v5/coreSnippet?appguid=aa0d4da3-3c12-453a-8cb0-7e4b0ef86214" async></script>
+
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDNPRQRS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    <script>
+    
+    
+    
+    document.querySelectorAll('.cs-install__box').forEach((box) => {
+        const button = box.querySelector('.cs-copy');
+        if (!button) return;
+        const original = button.innerHTML;
+
+        button.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(box.dataset.copy);
+            } catch (error) {
+                return;   
+            }
+            button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17L4 12"></path></svg>';
+            box.classList.add('is-copied');
+            setTimeout(() => {
+                button.innerHTML = original;
+                box.classList.remove('is-copied');
+            }, 1800);
+        });
+    });
+    </script>
+</body>
+</html>
