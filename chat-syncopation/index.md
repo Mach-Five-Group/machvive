@@ -10,7 +10,6 @@ title: "Machvive Chat Syncopation"
 description: "Dependency-free web components for building chat interfaces — engagement, low cognitive load, modern web experiences, and user agency over their own conversation data."
 layout: "chat-syncopation"
 npmPackage: "@machfivetechchicago/machvive-chat-syncopation-ai"
-npmStatus: "coming-soon"   # drop this line once the package is published
 skillMarketplace: "Mach-Five-Group/machvive-chat-syncopation-ai"
 skillName: "machvive-chat-syncopation"
 repo: "https://github.com/Mach-Five-Group/machvive-chat-syncopation-ai"
