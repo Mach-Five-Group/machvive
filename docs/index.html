@@ -550,7 +550,9 @@ What WebMCP is WebMCP is a W3C Web Machine Learning Community Group proposal. A 
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><h2 id="this-site-is-agent-callable">This site is agent-callable</h2>
-<p>machvive.com runs on the package it documents. Every page registers three tools: <code>get_install_command</code>, <code>search_docs</code> and <code>list_components</code>. Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.</p>
+<p>machvive.com runs on the package it documents. Every page registers three of its own tools — <code>get_install_command</code>, <code>search_docs</code> and <code>list_components</code> — and the documentation pages additionally carry a MachFive Magnet, whose component derives four more from that magnet&rsquo;s configuration: <code>magnet_describe</code>, <code>magnet_options</code>, <code>magnet_start</code> and <code>magnet_status</code>. Seven on this page, then; three on the home page, which carries no magnet by design.</p>
+<p>Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.</p>
+<p>You can also check it from the outside. The <a href="https://webmcp.com/sites/machvive.com">WebMCP Directory lists machvive.com</a> with all seven tools and their descriptions — found by an independent crawler, not asserted by us.</p>
 <h2 id="where-to-go-next">Where to go next</h2>
 <ol>
 <li><a href="/docs/installation/">Installation</a> covers npm, the buildless CDN path, and the two constraints that trip people up.</li>

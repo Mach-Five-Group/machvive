@@ -48,7 +48,11 @@ navigator.modelContext.registerTool({
 
 ## This site is agent-callable
 
-machvive.com runs on the package it documents. Every page registers three tools: `get_install_command`, `search_docs` and `list_components`. Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.
+machvive.com runs on the package it documents. Every page registers three of its own tools — `get_install_command`, `search_docs` and `list_components` — and the documentation pages additionally carry a MachFive Magnet, whose component derives four more from that magnet's configuration: `magnet_describe`, `magnet_options`, `magnet_start` and `magnet_status`. Seven on this page, then; three on the home page, which carries no magnet by design.
+
+Open the floating inspector in the corner of any docs page to see them, fill in a form, and run one. That is exactly what an agent sees.
+
+You can also check it from the outside. The [WebMCP Directory lists machvive.com](https://webmcp.com/sites/machvive.com) with all seven tools and their descriptions — found by an independent crawler, not asserted by us.
 
 ## Where to go next
 
