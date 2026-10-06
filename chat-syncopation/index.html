@@ -230,6 +230,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </section>
 
         <section class="cs-section">
+            <h2>Author-time configuration</h2>
+            <p>
+                Every component declares a schema for its own knobs, and one schema
+                drives all three configuration paths &mdash; HTML attributes, a
+                JavaScript <code>config</code> object, and a design state that renders
+                the component's own settings as a form. Set <code>state="design"</code>
+                and the surface turns itself inside out; edits apply live and land on
+                the element's attributes.
+            </p>
+            <p>
+                The bus is recordable, too. A built-in recorder captures every event
+                as portable JSON &mdash; export it, import it elsewhere, replay it, and
+                the components re-react exactly as they did live.
+            </p>
+        </section>
+
+        <section class="cs-section">
             <h2>Four commitments</h2>
             <div class="cs-grid">
                 <div class="cs-card">
