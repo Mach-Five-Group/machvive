@@ -20,6 +20,8 @@
  */
 const me = document.currentScript || document.querySelector('script[data-webmcp-cdn]');
 const CDN = me?.dataset.webmcpCdn;
+/** Declared on the schema as well as enforced, so a validator can see it. */
+const MAX_QUERY = 200;
 const PACKAGE = me?.dataset.webmcpPackage || '@machfivetechchicago/machvive-webmcp-ai';
 const SEARCH_INDEX = me?.dataset.webmcpIndex || '/index.json';
 
@@ -153,12 +155,22 @@ function siteTools() {
       inputSchema: {
         type: 'object',
         properties: {
-          query: { type: 'string', description: 'Words to look for' },
-          limit: { type: 'integer', minimum: 1, maximum: 20, description: 'Maximum sections to return (default 5)' }
+          // minLength/maxLength declared, not just enforced. `limit` was already
+          // bounded here while `query` was not, and a constraint that exists
+          // only in the implementation is invisible to a validator and to an
+          // agent planning a call.
+          query: { type: 'string', minLength: 1, maxLength: MAX_QUERY, description: 'Words to look for' },
+          limit: { type: 'integer', minimum: 1, maximum: 20, default: 5, description: 'Maximum sections to return (default 5)' }
         },
         required: ['query']
       },
       execute: async ({ query, limit = 5 }) => {
+        // Refused with a reason rather than truncated: shortening a query
+        // answers a question the agent did not ask, and it cannot tell.
+        if (typeof query !== 'string' || !query.trim()) return 'query is required.';
+        if (query.length > MAX_QUERY) {
+          return `query must be ${MAX_QUERY} characters or fewer (received ${query.length}).`;
+        }
         const hits = await searchIndex(query, limit);
         if (!hits.length) return `No documentation sections matched "${query}". Try /llms.txt for an overview.`;
         return hits
