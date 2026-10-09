@@ -11,9 +11,9 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/machvive-webmcp-analytics/machvive-webmcp-analytics.js" crossorigin>
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js" crossorigin>
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/shared/theme.js" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.7.0/src/wc/machvive-webmcp-analytics/machvive-webmcp-analytics.js" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.7.0/src/wc/machvive-webmcp-polyfill/machvive-webmcp-polyfill.js" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.7.0/src/wc/shared/theme.js" crossorigin>
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="https://unpkg.com/">
 
@@ -859,7 +859,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <machvive-webmcp-inspect floating theme="dark"
                              position="bottom-left"
                              hotkey="ctrl+shift+k"></machvive-webmcp-inspect>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0/src/wc/machvive-webmcp-inspect/machvive-webmcp-inspect.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.7.0/src/wc/machvive-webmcp-inspect/machvive-webmcp-inspect.js"></script>
 
     
 <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55__v4_0.js"></script>
@@ -869,8 +869,90 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="/js/main.js"></script>
 
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "MachVive open source components",
+  "description": "Open source web component libraries published by MachFiveTech Chicago.",
+  "numberOfItems": 2,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": [
+          "Product",
+          "SoftwareApplication"
+        ],
+        "name": "MachVive WebMCP",
+        "description": "Vanilla web components that make a page agent-callable: a WebMCP polyfill for navigator.modelContext, an inspector that builds a form from each tool's schema, analytics that captures every call, and a reader that turns product JSON-LD into tools. Zero runtime dependencies, no build step.",
+        "sku": "@machfivetechchicago/machvive-webmcp-ai",
+        "mpn": "@machfivetechchicago/machvive-webmcp-ai",
+        "brand": {
+          "@type": "Brand",
+          "name": "MachFiveTech Chicago"
+        },
+        "category": "WebMCP Components",
+        "url": "https://www.machvive.com/docs/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any browser supporting custom elements",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.npmjs.com/package/@machfivetechchicago/machvive-webmcp-ai",
+          "seller": {
+            "@type": "Organization",
+            "name": "MachFiveTech Chicago"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": [
+          "Product",
+          "SoftwareApplication"
+        ],
+        "name": "MachVive Chat Syncopation",
+        "description": "Dependency-free web components for building chat interfaces \u2014 transcript, composer, suggestion chips, slash-command CLI, voice, inspector and history. AI-stack agnostic, and able to run against a model inside the browser with no per-token cost.",
+        "sku": "@machfivetechchicago/machvive-chat-syncopation-ai",
+        "mpn": "@machfivetechchicago/machvive-chat-syncopation-ai",
+        "brand": {
+          "@type": "Brand",
+          "name": "MachFiveTech Chicago"
+        },
+        "category": "Chat Components",
+        "url": "https://www.machvive.com/chat-syncopation/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any browser supporting custom elements",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.npmjs.com/package/@machfivetechchicago/machvive-chat-syncopation-ai",
+          "seller": {
+            "@type": "Organization",
+            "name": "MachFiveTech Chicago"
+          }
+        }
+      }
+    }
+  ]
+}
+</script>
+
+
+
 <script type="module" src="/js/webmcp-site.js"
-        data-webmcp-cdn="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.3.0"
+        data-webmcp-cdn="https://cdn.jsdelivr.net/npm/@machfivetechchicago/machvive-webmcp-ai@6.7.0"
         data-webmcp-package="@machfivetechchicago/machvive-webmcp-ai"
         data-webmcp-index="/index.json"></script>
 

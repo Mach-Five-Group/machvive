@@ -48,7 +48,31 @@ async function boot() {
   // would erase the other's tools.
   for (const tool of siteTools()) navigator.modelContext.registerTool(tool);
 
+  await bridgeProducts();
   await bridgeMagnet();
+}
+
+/**
+ * Publishes the site's own catalogue, when the page carries product JSON-LD.
+ *
+ * The markup is in layouts/partials/products-jsonld.html and exists for search
+ * engines regardless. The component reads that same block and exposes
+ * search_products, get_product and list_product_facets — no second copy of the
+ * data, and nothing to keep in sync.
+ */
+async function bridgeProducts() {
+  if (!document.querySelector('script[type="application/ld+json"]')) return;
+  try {
+    await import(`${CDN}/src/wc/machvive-webmcp-products/machvive-webmcp-products.js`);
+    if (!document.querySelector('machvive-webmcp-products')) {
+      const el = document.createElement('machvive-webmcp-products');
+      el.hidden = true;        // the tools are the point here, not the status line
+      document.body.append(el);
+    }
+  } catch (err) {
+    // The site's own tools are already registered; this must not take them down.
+    console.warn('WebMCP products bridge failed to start:', err);
+  }
 }
 
 /**
