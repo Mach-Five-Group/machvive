@@ -235,14 +235,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 Every component declares a schema for its own knobs, and one schema
                 drives all three configuration paths &mdash; HTML attributes, a
                 JavaScript <code>config</code> object, and a design state that renders
-                the component's own settings as a form. Set <code>state="design"</code>
-                and the surface turns itself inside out; edits apply live and land on
-                the element's attributes.
+                the component's own settings as a form. Set
+                <code>data-chat-state="design"</code> on the surface and it turns itself
+                inside out; edits apply live and land on the element's attributes.
             </p>
             <p>
                 The bus is recordable, too. A built-in recorder captures every event
                 as portable JSON &mdash; export it, import it elsewhere, replay it, and
                 the components re-react exactly as they did live.
+            </p>
+        </section>
+
+        <section class="cs-section">
+            <h2>Themes and motifs, as scope</h2>
+            <p>
+                Theming inherits down the page. Set <code>data-mcs-theme="dark"</code> on
+                a section and everything in it is dark; set it again on one surface to
+                make just that one light. A motif &mdash; a named token bundle like
+                <code>corp</code> or <code>artdeco</code> &mdash; is its own scope,
+                <code>data-mcs-motif="artdeco"</code>, and it composes with the scheme
+                rather than replacing it. Register your own with a single call.
+            </p>
+            <p>
+                Because components read the inherited scope rather than setting their own
+                colours, a page-level token override actually reaches them &mdash; which is
+                the whole point of a component you can drop into anything.
             </p>
         </section>
 
